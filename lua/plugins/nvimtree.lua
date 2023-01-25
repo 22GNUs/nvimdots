@@ -2,7 +2,7 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     ft = "alpha",
-    lazy = true,
+    keys = require("core.keymaps").nvimtree,
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
       local present, nvimtree = pcall(require, "nvim-tree")
@@ -87,7 +87,6 @@ return {
       }
       nvimtree.setup(options)
     end,
-    keys = require("core.keymaps").nvimtree,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }
