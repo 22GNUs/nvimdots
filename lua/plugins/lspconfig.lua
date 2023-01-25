@@ -51,6 +51,8 @@ return {
     event = "VeryLazy",
     dependencies = "mason",
     config = function()
+      -- render lsp ui
+      require("ui.lsp")
       local lspconfig = require("lspconfig")
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup({
