@@ -5,7 +5,7 @@ return {
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
     lazy = false,
     config = function()
-      local mason = require "mason"
+      local mason = require("mason")
       local options = {
         ensure_installed = ensure_installed,
         PATH = "prepend",
@@ -32,6 +32,6 @@ return {
         vim.cmd("MasonInstall " .. table.concat(options.ensure_installed, " "))
       end, {})
       mason.setup(options)
-    end
-  }
+    end,
+  },
 }

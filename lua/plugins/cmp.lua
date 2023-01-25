@@ -17,8 +17,8 @@ return {
     dependencies = { "friendly-snippets" },
     config = function()
       vim.o.completeopt = "menu,menuone,noselect"
-      local cmp = require "cmp"
-      local cmp_window = require "cmp.utils.window"
+      local cmp = require("cmp")
+      local cmp_window = require("cmp.utils.window")
       cmp_window.info_ = cmp_window.info
       cmp_window.info = function(self)
         local info = self:info_()
@@ -29,11 +29,11 @@ return {
       local options = {
         window = {
           completion = {
-            border = border "CmpBorder",
+            border = border("CmpBorder"),
             winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
           },
           documentation = {
-            border = border "CmpDocBorder",
+            border = border("CmpDocBorder"),
           },
         },
         snippet = {
@@ -48,19 +48,16 @@ return {
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.close(),
-          ["<CR>"] = cmp.mapping.confirm {
+          ["<CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = false,
-          },
+          }),
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
               -- See: https://github.com/L3MON4D3/LuaSnip/issues/532
             elseif require("luasnip").expand_or_locally_jumpable() then
-              vim.fn.feedkeys(
-                vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
-                ""
-              )
+              vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
             else
               fallback()
             end
@@ -90,6 +87,6 @@ return {
         },
       }
       cmp.setup(options)
-    end
-  }
+    end,
+  },
 }

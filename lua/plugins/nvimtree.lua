@@ -12,7 +12,7 @@ return {
       local options = {
         filters = {
           dotfiles = false,
-          exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
+          exclude = { vim.fn.stdpath("config") .. "/lua/custom" },
         },
         disable_netrw = true,
         hijack_netrw = true,
@@ -88,6 +88,6 @@ return {
       nvimtree.setup(options)
     end,
     keys = require("core.keymaps").nvimtree,
-    dependencies = { "nvim-tree/nvim-web-devicons" }
-  }
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 }
