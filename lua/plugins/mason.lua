@@ -1,10 +1,10 @@
 local ensure_installed = { "lua-language-server" }
+
 return {
   {
     "williamboman/mason.nvim",
     name = "mason",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
-    lazy = false,
     opts = {
       ensure_installed = ensure_installed,
       PATH = "prepend",

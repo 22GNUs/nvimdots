@@ -2,6 +2,7 @@ return {
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "plenary", "nvim-lspconfig" },
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
     config = function()
       local null_ls = require("null-ls")
       local b = null_ls.builtins
