@@ -19,7 +19,7 @@ return {
           show_buffer_icons = true,
           show_tab_indicators = true,
           diagnostics = "nvim_lsp",
-          always_show_bufferline = true,
+          always_show_bufferline = false,
           separator_style = "thin",
           offsets = {
             {
