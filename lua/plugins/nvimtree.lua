@@ -87,6 +87,6 @@ return {
       }
       nvimtree.setup(options)
     end,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-web-devicons" },
   },
 }

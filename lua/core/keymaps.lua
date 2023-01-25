@@ -5,6 +5,12 @@ M.nvimtree = {
   { "<leader>e", "<cmd> NvimTreeFocus <CR>", desc = "focus nvimtree" },
 }
 
+M.buffer = {
+  { "<leader>x", "<cmd> BufDel <CR>", desc = "close buffer" },
+  { "<Tab>", "<cmd> BufferLineCycleNext <CR>", desc = "goto next buffer" },
+  { "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>", desc = "goto previous buffer" },
+}
+
 M.telescope = {
   -- find
   { "<leader>ff", "<cmd> Telescope find_files <CR>", desc = "find files" },
