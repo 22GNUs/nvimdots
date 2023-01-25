@@ -34,6 +34,7 @@ return {
       custom_highlights = {},
       integrations = {
         cmp = true,
+        mason = true,
         gitsigns = true,
         nvimtree = true,
         telescope = true,
