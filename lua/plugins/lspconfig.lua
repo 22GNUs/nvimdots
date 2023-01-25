@@ -48,7 +48,7 @@ capabilities.textDocument.completion.completionItem = {
 return {
   {
     "neovim/nvim-lspconfig",
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    event = "VeryLazy",
     dependencies = "mason",
     config = function()
       local lspconfig = require("lspconfig")
