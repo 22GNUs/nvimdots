@@ -3,12 +3,12 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
-    lazy = true,
+    lazy = false,
     config = function()
       local mason = require "mason"
       local options = {
         ensure_installed = ensure_installed,
-        PATH = "skip",
+        PATH = "prepend",
         ui = {
           icons = {
             package_pending = " ",
