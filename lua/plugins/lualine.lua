@@ -84,7 +84,7 @@ local theme_settings = require("core.settings").theme
 
 return {
   "nvim-lualine/lualine.nvim",
-  event = event.VeryLazy,
+  event = event.OnFileOpen,
   dependencies = { "nvim-web-devicons", "nvim-lspconfig" },
   opts = {
     options = {
