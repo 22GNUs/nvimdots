@@ -1,47 +1,43 @@
-local vim_icons = {
-  function()
-    return " "
-  end,
-  separator = { left = "", right = "" },
-  color = { bg = "#313244", fg = "#80A7EA" },
-}
+local palettes = require("core.utils").get_theme_paletts()
+local ui = require("ui.icons").ui
+local separator = { left = ui.left_separator, right = ui.right_separator }
 
 local filename = {
   "filename",
-  color = { bg = "#80A7EA", fg = "#242735" },
-  separator = { left = "", right = "" },
+  color = { bg = palettes.blue, fg = palettes.surface1 },
+  separator = separator,
 }
 
 local filetype = {
   "filetype",
   icon_only = true,
   colored = true,
-  color = { bg = "#313244" },
-  separator = { left = "", right = "" },
+  color = { bg = palettes.surface0 },
+  separator = separator,
 }
 
 local fileformat = {
   "fileformat",
-  color = { bg = "#b4befe", fg = "#313244" },
-  separator = { left = "", right = "" },
+  color = { bg = palettes.mauve, fg = palettes.surface0 },
+  separator = separator,
 }
 
 local encoding = {
   "encoding",
-  color = { bg = "#313244", fg = "#80A7EA" },
-  separator = { left = "", right = "" },
+  color = { bg = palettes.surface0, fg = palettes.blue },
+  separator = separator,
 }
 
 local branch = {
   "branch",
-  color = { bg = "#a6e3a1", fg = "#313244" },
-  separator = { left = "", right = "" },
+  color = { bg = palettes.green, fg = palettes.surface0 },
+  separator = separator,
 }
 
 local diff = {
   "diff",
-  color = { bg = "#313244", fg = "#313244" },
-  separator = { left = "", right = "" },
+  color = { bg = palettes.base, fg = palettes.surface0 },
+  separator = separator,
 }
 
 local modes = {
@@ -49,8 +45,8 @@ local modes = {
   fmt = function(str)
     return str:sub(1, 1)
   end,
-  color = { bg = "#fab387		", fg = "#1e1e2e" },
-  separator = { left = "", right = "" },
+  color = { bg = palettes.peach, fg = palettes.base },
+  separator = separator,
 }
 
 local function getLspName()
@@ -71,16 +67,16 @@ end
 
 local dia = {
   "diagnostics",
-  color = { bg = "#313244", fg = "#80A7EA" },
-  separator = { left = "", right = "" },
+  color = { bg = palettes.surface0, fg = palettes.surface0 },
+  separator = separator,
 }
 
 local lsp = {
   function()
     return getLspName()
   end,
-  separator = { left = "", right = "" },
-  color = { bg = "#f38ba8", fg = "#1e1e2e" },
+  separator = separator,
+  color = { bg = palettes.pink, fg = palettes.base },
 }
 
 local event = require("core.lazy").event
@@ -112,33 +108,32 @@ return {
 
     sections = {
       lualine_a = {
-        --{ 'mode', fmt = function(str) return str:gsub(str, "  ") end },
         modes,
-        vim_icons,
-        --{ 'mode', fmt = function(str) return str:sub(1, 1) end },
       },
       lualine_b = {
-        filename,
         filetype,
+        filename,
         branch,
         diff,
       },
+      lualine_c = {},
       lualine_x = {
-        encoding,
-        fileformat,
-      },
-      lualine_y = {
         dia,
         lsp,
       },
+      lualine_y = {
+        encoding,
+        fileformat,
+      },
+      lualine_z = {},
     },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
       lualine_c = { "filename" },
-      lualine_x = { "location" },
+      lualine_x = {},
       lualine_y = {},
-      lualine_z = {},
+      lualine_z = { "location" },
     },
     winbar = {},
     inactive_winbar = {},

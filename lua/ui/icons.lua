@@ -8,8 +8,8 @@ return {
     buffer_close = "",
     left_trunc = "",
     right_trunc = "",
-    left_separator = "",
-    right_separator = "",
+    left_separator = "",
+    right_separator = "",
   },
   kind = {
     Class = "ﴯ",
