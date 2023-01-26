@@ -36,7 +36,7 @@ local branch = {
 
 local diff = {
   "diff",
-  color = { bg = palettes.base, fg = palettes.surface0 },
+  color = { bg = palettes.surface0, fg = palettes.surface0 },
   separator = separator,
 }
 
