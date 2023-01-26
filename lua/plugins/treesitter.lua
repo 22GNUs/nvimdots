@@ -6,8 +6,13 @@ return {
   build = ":TSUpdate",
   opts = {
     ensure_installed = {
+      "json",
+      "toml",
+      "markdown",
+      "bash",
       "lua",
       "vim",
+      "go",
     },
     highlight = {
       enable = true,

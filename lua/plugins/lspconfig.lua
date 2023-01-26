@@ -1,4 +1,4 @@
-local servers = { "gopls", "tsserver", "jdtls", "pylsp" }
+local servers = { "gopls" }
 local on_attach = function(client, bufnr)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false

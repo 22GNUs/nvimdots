@@ -1,4 +1,13 @@
-local ensure_installed = { "lua-language-server" }
+local ensure_installed = {
+  -- lua stuff
+  "lua-language-server",
+  -- go
+  "gopls",
+  -- shell
+  "shellcheck",
+  -- json
+  "json-lsp",
+}
 local ui = require("ui.icons").ui
 
 return {

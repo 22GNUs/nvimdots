@@ -1,7 +1,7 @@
+local transparency = require("core.settings").transparency
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
-  event = require("core.lazy").event.VeryLazy,
   keys = require("core.keymaps").telescope,
   config = function()
     local extensions_list = { "themes", "terms" }
@@ -18,7 +18,8 @@ return {
           "--column",
           "--smart-case",
         },
-        prompt_prefix = "   ",
+        -- prompt_prefix = "   ",
+        prompt_prefix = "   ",
         selection_caret = "  ",
         entry_prefix = "  ",
         initial_mode = "insert",
@@ -42,7 +43,7 @@ return {
         file_ignore_patterns = { "node_modules" },
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         path_display = { "truncate" },
-        winblend = 0,
+        winblend = transparency.winblend(),
         border = {},
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         color_devicons = true,

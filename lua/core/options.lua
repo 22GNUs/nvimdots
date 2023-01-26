@@ -1,6 +1,8 @@
 local opt = vim.opt
 local g = vim.g
+local transparency = require("core.settings").transparency
 
+g.mapleader = " "
 g.transparency = false
 g.theme_switcher_loaded = false
 
@@ -44,7 +46,16 @@ opt.updatetime = 250
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append("<>[]hl")
 
-g.mapleader = " "
+vim.o.list = true
+vim.o.listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
+vim.o.linebreak = true
+vim.o.showbreak = "↳  "
+vim.o.winblend = transparency.winblend()
+vim.o.pumblend = transparency.pumblend()
+
+-- close other buffers and keep current opened only
+-- see: https://tech.serhatteker.com/post/2020-06/close-all-buffers-but-current-in-vim/
+vim.cmd("silent! command! BufCurOnly execute '%bdelete|edit#|bdelete#'")
 
 -- disable some builtin vim plugins
 local default_plugins = {

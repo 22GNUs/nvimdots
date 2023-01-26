@@ -30,6 +30,7 @@ M.general = {
   { "<leader>rn", "<cmd> set rnu! <CR>", desc = "toggle relative number" },
   -- new buffer
   { "<leader>b", "<cmd> enew <CR>", desc = "new buffer" },
+  { "<leader>ss", "<cmd> source % <CR>", desc = "source current" },
 
   -- mode t
   { "<C-x>", termcodes("<C-\\><C-N>"), desc = "escape terminal mode", mode = "t" },
@@ -181,6 +182,14 @@ M.lspconfig = {
     end,
     desc = "list workspace folders",
   },
+}
+
+M.focus = {
+  { "<leader>wh", ":FocusSplitLeft<CR>", desc = "focus left" },
+  { "<leader>wj", ":FocusSplitDown<CR>", desc = "focus left" },
+  { "<leader>wk", ":FocusSplitUp<CR>", desc = "focus left" },
+  { "<leader>wl", ":FocusSplitRight<CR>", desc = "focus left" },
+  { "<leader>wn", ":FocusSplitNicely<CR>", desc = "focus nicely" },
 }
 
 return M
