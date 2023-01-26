@@ -1,4 +1,6 @@
 local settings = require("core.settings")
+local ui = require("ui.icons").ui
+local diagnostics = require("ui.icons").diagnostics
 return {
   {
     "akinsho/bufferline.nvim",
@@ -10,14 +12,14 @@ return {
         options = {
           number = nil,
           close_command = "BufDel", -- can be a string | function, see "Mouse actions"
-          modified_icon = "✥",
+          modified_icon = ui.modified,
           indicator = {
-            icon = "▎", -- this should be omitted if indicator style is not 'icon'
+            icon = ui.indicator, -- this should be omitted if indicator style is not 'icon'
             style = "icon",
           },
-          buffer_close_icon = "",
-          left_trunc_marker = "",
-          right_trunc_marker = "",
+          buffer_close_icon = ui.buffer_close,
+          left_trunc_marker = ui.left_trunc,
+          right_trunc_marker = ui.right_trunc,
           max_name_length = 14,
           max_prefix_length = 13,
           tab_size = 20,
@@ -48,7 +50,8 @@ return {
           diagnostics_indicator = function(_, _, diagnostics_dict, _)
             local s = " "
             for e, n in pairs(diagnostics_dict) do
-              local sym = e == "error" and " " or (e == "warning" and " " or "")
+              local sym = e == "error" and diagnostics.error
+                or (e == "warning" and diagnostics.warning or diagnostics.other)
               s = s .. n .. sym
             end
             return s

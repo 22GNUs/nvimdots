@@ -1,3 +1,4 @@
+local ui = require("ui.icons").ui
 return {
   "nvim-lualine/lualine.nvim",
   event = require("core.lazy").event.VeryLazy,
@@ -6,8 +7,8 @@ return {
     options = {
       theme = "catppuccin",
       icons_enabled = true,
-      component_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
+      component_separators = { left = ui.left_separator_1, right = ui.right_separator_1 },
+      section_separators = { left = ui.left_separator_2, right = ui.right_separator_2 },
       disabled_filetypes = {
         statusline = {},
         winbar = {},

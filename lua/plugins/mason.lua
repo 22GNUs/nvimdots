@@ -1,4 +1,5 @@
 local ensure_installed = { "lua-language-server" }
+local ui = require("ui.icons").ui
 
 return {
   {
@@ -10,9 +11,9 @@ return {
       PATH = "prepend",
       ui = {
         icons = {
-          package_pending = " ",
-          package_installed = " ",
-          package_uninstalled = " ﮊ",
+          package_pending = ui.package_pending,
+          package_installed = ui.package_installed,
+          package_uninstalled = ui.package_uninstalled,
         },
         keymaps = {
           toggle_server_expand = "<CR>",
