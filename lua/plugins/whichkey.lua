@@ -1,6 +1,6 @@
 return {
   "folke/which-key.nvim",
-  event = "UIEnter",
+  event = require("core.lazy").event.VeryLazy,
   keys = require("core.keymaps").whichkey,
   opts = {
     icons = {
