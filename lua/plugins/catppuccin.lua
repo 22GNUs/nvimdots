@@ -44,6 +44,10 @@ return {
         lsp_saga = true,
         lsp_trouble = true,
         dap = { enabled = true, enable_ui = true },
+        indent_blankline = {
+          enabled = true,
+          colored_indent_levels = true,
+        },
         native_lsp = {
           enabled = true,
           virtual_text = {
