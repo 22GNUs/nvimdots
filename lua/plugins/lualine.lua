@@ -85,7 +85,7 @@ local lsp = {
 
 return {
   "nvim-lualine/lualine.nvim",
-  event = require("core.lazy").event.OnFileOpen,
+  event = require("core.lazy").event.VeryLazy,
   dependencies = { "nvim-web-devicons", "nvim-lspconfig" },
   opts = {
     options = {
