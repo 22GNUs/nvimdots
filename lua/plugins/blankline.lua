@@ -22,12 +22,12 @@ return {
     show_current_context = false,
     show_current_context_start = false,
     char_highlight_list = {
-      "IndentBlanklineIndent1",
-      "IndentBlanklineIndent2",
       "IndentBlanklineIndent3",
+      "IndentBlanklineIndent1",
       "IndentBlanklineIndent4",
-      "IndentBlanklineIndent5",
+      "IndentBlanklineIndent2",
       "IndentBlanklineIndent6",
+      "IndentBlanklineIndent5",
     },
   },
 }
