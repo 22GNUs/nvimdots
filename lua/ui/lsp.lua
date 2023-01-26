@@ -25,6 +25,11 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
   focusable = false,
   relative = "cursor",
 })
+-- make diagnostic work on insert mode
+local settings = require("core.settings")
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  update_in_insert = settings.diagnostics_update_in_insert,
+})
 
 -- suppress error messages from lang servers
 vim.notify = function(msg, log_level)

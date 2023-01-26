@@ -1,3 +1,4 @@
+local settings = require("core.settings")
 return {
   {
     "akinsho/bufferline.nvim",
@@ -17,9 +18,9 @@ return {
           tab_size = 20,
           show_buffer_close_icons = true,
           show_buffer_icons = true,
-          show_tab_indicators = true,
+          show_tab_indicators = false,
           diagnostics = "nvim_lsp",
-          always_show_bufferline = false,
+          always_show_bufferline = true,
           separator_style = "thin",
           offsets = {
             {
@@ -35,8 +36,14 @@ return {
               padding = 1,
             },
           },
-          diagnostics_indicator = function(count)
-            return "(" .. count .. ")"
+          diagnostics_update_in_insert = settings.diagnostics_update_in_insert,
+          diagnostics_indicator = function(_, _, diagnostics_dict, _)
+            local s = " "
+            for e, n in pairs(diagnostics_dict) do
+              local sym = e == "error" and " " or (e == "warning" and " " or "")
+              s = s .. n .. sym
+            end
+            return s
           end,
         },
         -- Change bufferline's highlights here! See `:h bufferline-highlights` for detailed explanation.
