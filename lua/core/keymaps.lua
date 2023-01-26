@@ -11,6 +11,69 @@ M.buffer = {
   { "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>", desc = "goto previous buffer" },
 }
 
+M.gitsigns = {
+  {
+    "]c",
+    function()
+      if vim.wo.diff then
+        return "]c"
+      end
+      vim.schedule(function()
+        require("gitsigns").next_hunk()
+      end)
+      return "<Ignore>"
+    end,
+    desc = "Jump to next hunk",
+  },
+
+  {
+    "[c",
+    function()
+      if vim.wo.diff then
+        return "[c"
+      end
+      vim.schedule(function()
+        require("gitsigns").prev_hunk()
+      end)
+      return "<Ignore>"
+    end,
+    desc = "Jump to prev hunk",
+  },
+
+  -- Actions
+  {
+    "<leader>rh",
+    function()
+      require("gitsigns").reset_hunk()
+    end,
+    desc = "Reset hunk",
+  },
+
+  {
+    "<leader>ph",
+    function()
+      require("gitsigns").preview_hunk()
+    end,
+    desc = "Preview hunk",
+  },
+
+  {
+    "<leader>gb",
+    function()
+      package.loaded.gitsigns.blame_line()
+    end,
+    desc = "Blame line",
+  },
+
+  {
+    "<leader>td",
+    function()
+      require("gitsigns").toggle_deleted()
+    end,
+    desc = "Toggle deleted",
+  },
+}
+
 M.telescope = {
   -- find
   { "<leader>ff", "<cmd> Telescope find_files <CR>", desc = "find files" },
