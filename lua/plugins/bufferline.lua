@@ -46,7 +46,7 @@ return {
               padding = 1,
             },
           },
-          diagnostics_update_in_insert = settings.diagnostics_update_in_insert,
+          diagnostics_update_in_insert = settings.diagnostics.update_in_insert,
           diagnostics_indicator = function(_, _, diagnostics_dict, _)
             local s = " "
             for e, n in pairs(diagnostics_dict) do
