@@ -22,11 +22,13 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "onsails/lspkind.nvim",
   },
   config = function()
     vim.o.completeopt = "menu,menuone,noselect"
     local cmp = require("cmp")
     local cmp_window = require("cmp.utils.window")
+    local lspkind = require("lspkind")
     cmp_window.info_ = cmp_window.info
     cmp_window.info = function(self)
       local info = self:info_()
@@ -34,15 +36,37 @@ return {
       return info
     end
 
+    local icons = {
+      kind = require("ui.icons").kind,
+      type = require("ui.icons").type,
+      cmp = require("ui.icons").cmp,
+    }
+
     local options = {
       window = {
         completion = {
           border = border("CmpBorder"),
+          max_width = 80,
+          max_height = 20,
           winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
         },
         documentation = {
           border = border("CmpDocBorder"),
         },
+      },
+      formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+          local kind = lspkind.cmp_format({
+            mode = "symbol_text",
+            maxwidth = 50,
+            symbol_map = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp),
+          })(entry, vim_item)
+          local strings = vim.split(kind.kind, "%s", { trimempty = true })
+          kind.kind = " " .. strings[1] .. " "
+          kind.menu = "    (" .. strings[2] .. ")"
+          return kind
+        end,
       },
       snippet = {
         expand = function(args)
