@@ -3,7 +3,7 @@ local g = vim.g
 local transparency = require("core.settings").transparency
 
 g.mapleader = " "
-g.transparency = false
+g.transparency = true
 g.theme_switcher_loaded = false
 
 opt.laststatus = 3 -- global statusline
