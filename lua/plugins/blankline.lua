@@ -1,6 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = "VeryLazy",
+  event = require("core.lazy").event.OnFileOpen,
   name = "indent_blankline",
   opts = {
     space_char_blankline = " ",

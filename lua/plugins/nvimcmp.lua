@@ -13,7 +13,7 @@ end
 
 return {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+  event = require("core.lazy").event.InsertEnter,
   dependencies = {
     "friendly-snippets",
     "LuaSnip",

@@ -1,7 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
-  event = "VeryLazy",
+  event = require("core.lazy").event.VeryLazy,
   keys = require("core.keymaps").telescope,
   config = function()
     local extensions_list = { "themes", "terms" }

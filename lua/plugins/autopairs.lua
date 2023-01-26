@@ -3,7 +3,7 @@ return {
     "windwp/nvim-autopairs",
     name = "nvim-autopairs",
     dependencies = "nvim-cmp",
-    event = "InsertEnter",
+    event = require("core.lazy").event.InsertEnter,
     opts = {
       fast_wrap = {},
       disable_filetype = { "TelescopePrompt", "vim" },

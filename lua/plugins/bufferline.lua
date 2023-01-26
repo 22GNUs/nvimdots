@@ -3,7 +3,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     dependencies = { "nvim-web-devicons", "ojroques/nvim-bufdel" },
-    event = "BufReadPost",
+    event = require("core.lazy").event.OnFileOpen,
     keys = require("core.keymaps").buffer,
     config = function()
       local opts = {

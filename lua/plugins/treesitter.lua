@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
-  event = "VeryLazy",
+  event = require("core.lazy").event.OnFileOpen,
   build = ":TSUpdate",
   opts = {
     ensure_installed = {

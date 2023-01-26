@@ -2,7 +2,7 @@ return {
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "plenary", "nvim-lspconfig" },
-    event = "VeryLazy",
+    event = require("core.lazy").event.OnFileOpen,
     config = function()
       local null_ls = require("null-ls")
       local b = null_ls.builtins
