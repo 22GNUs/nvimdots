@@ -57,9 +57,8 @@ return {
             return s
           end,
         },
-        -- catppuccin colors
         -- see: https://github.com/catppuccin/nvim#special-integrations
-        highlights = require("catppuccin.groups.integrations.bufferline").get(),
+        highlights = require("core.utils").get_theme_highlights(),
       }
       require("bufferline").setup(opts)
     end,

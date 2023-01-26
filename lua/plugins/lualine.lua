@@ -83,14 +83,17 @@ local lsp = {
   color = { bg = "#f38ba8", fg = "#1e1e2e" },
 }
 
+local event = require("core.lazy").event
+local theme_settings = require("core.settings").theme
+
 return {
   "nvim-lualine/lualine.nvim",
-  event = require("core.lazy").event.VeryLazy,
+  event = event.VeryLazy,
   dependencies = { "nvim-web-devicons", "nvim-lspconfig" },
   opts = {
     options = {
       icons_enabled = true,
-      theme = "catppuccin",
+      theme = theme_settings.name,
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
       disabled_filetypes = {
