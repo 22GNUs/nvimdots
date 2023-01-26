@@ -50,7 +50,7 @@ capabilities.textDocument.completion.completionItem = {
 return {
   {
     "neovim/nvim-lspconfig",
-    event = require("core.lazy").event.VeryLazy,
+    event = require("core.lazy").event.OnFileOpen,
     dependencies = { "plenary", "mason" },
     config = function()
       -- render lsp ui

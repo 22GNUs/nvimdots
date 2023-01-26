@@ -1,7 +1,7 @@
 return {
   event = {
     VeryLazy = "VeryLazy",
-    OnFileOpen = { "BufRead", "BufWinEnter", "BufNewFile" },
+    OnFileOpen = { "BufRead", "BufNewFile" }, -- "BufWinEnter" },
     InsertEnter = "InsertEnter",
   },
 }

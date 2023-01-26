@@ -2,7 +2,7 @@ local event = require("core.lazy").event
 return {
   "lewis6991/gitsigns.nvim",
   ft = "gitcommit",
-  event = event.VeryLazy,
+  event = event.OnFileOpen,
   opts = {
     signs = {
       add = {
