@@ -13,20 +13,20 @@ if g.neovide ~= nil then
   -- transparency
   -- have bugs when --multigrid enable, disable for now, see https://github.com/neovide/neovide/issues/720
   if g.transparency then
-    -- g.neovide_transparency = 0.0
-    -- g.transparency = 0.97
-    -- local colors = require("base46").get_theme_tb "base_30"
-    -- vim.cmd("let g:neovide_background_color = '" .. colors.black .. "'.printf('%x', float2nr(255 * g:transparency))")
+    g.neovide_transparency = 0.0
+    g.transparency = 0.97
+    local colors = require("core.utils").get_theme_paletts()
+    vim.cmd("let g:neovide_background_color = '" .. colors.base .. "'.printf('%x', float2nr(255 * g:transparency))")
     -- close for now
     g.transparency = false
-    local transparency = require("custom.settings").transparency
+    local transparency = require("core.settings").transparency
     o.winblend = transparency.winblend()
     o.pumblend = transparency.pumblend()
   end
 
   -- blur
-  g.neovide_floating_blur_amount_x = 2.0
-  g.neovide_floating_blur_amount_y = 2.0
+  g.neovide_floating_blur_amount_x = 1.0
+  g.neovide_floating_blur_amount_y = 1.0
   -- vfx mode
   -- g.neovide_cursor_vfx_mode = "ripple"
   g.neovide_cursor_vfx_mode = "railgun"
