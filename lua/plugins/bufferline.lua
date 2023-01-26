@@ -9,25 +9,33 @@ return {
       local opts = {
         options = {
           number = nil,
+          close_command = "BufDel", -- can be a string | function, see "Mouse actions"
           modified_icon = "✥",
+          indicator = {
+            icon = "▎", -- this should be omitted if indicator style is not 'icon'
+            style = "icon",
+          },
           buffer_close_icon = "",
           left_trunc_marker = "",
           right_trunc_marker = "",
           max_name_length = 14,
           max_prefix_length = 13,
           tab_size = 20,
+          color_icons = true,
           show_buffer_close_icons = true,
           show_buffer_icons = true,
           show_tab_indicators = false,
+          show_buffer_default_icon = true,
           diagnostics = "nvim_lsp",
           always_show_bufferline = true,
-          separator_style = "thin",
+          separator_style = "thin", -- "slant" | "thick" | "thin" | { 'any', 'any' }
           offsets = {
             {
               filetype = "NvimTree",
               text = "File Explorer",
-              text_align = "center",
-              padding = 1,
+              text_align = "left",
+              separator = true,
+              -- padding = 1,
             },
             {
               filetype = "lspsagaoutline",
@@ -46,9 +54,9 @@ return {
             return s
           end,
         },
-        -- Change bufferline's highlights here! See `:h bufferline-highlights` for detailed explanation.
-        -- Note: If you use catppuccin then modify the colors below!
-        highlights = {},
+        -- catppuccin colors
+        -- see: https://github.com/catppuccin/nvim#special-integrations
+        highlights = require("catppuccin.groups.integrations.bufferline").get(),
       }
       require("bufferline").setup(opts)
     end,
