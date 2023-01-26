@@ -7,8 +7,8 @@ return {
     options = {
       theme = "catppuccin",
       icons_enabled = true,
-      component_separators = { left = ui.left_separator_1, right = ui.right_separator_1 },
-      section_separators = { left = ui.left_separator_2, right = ui.right_separator_2 },
+      component_separators = "|",
+      section_separators = { left = ui.left_separator, right = ui.right_separator },
       disabled_filetypes = {
         statusline = {},
         winbar = {},
@@ -26,7 +26,19 @@ return {
       lualine_a = { "mode" },
       lualine_b = { "branch", "diff", "diagnostics" },
       lualine_c = { "filename" },
-      lualine_x = { "encoding", "fileformat", "filetype" },
+      lualine_x = {
+        "encoding",
+        {
+          "fileformat",
+          icons_enabled = true,
+          symbols = {
+            unix = "LF",
+            dos = "CRLF",
+            mac = "CR",
+          },
+        },
+        "filetype",
+      },
       lualine_y = { "progress" },
       lualine_z = { "location" },
     },
@@ -45,7 +57,6 @@ return {
       "nvim-tree",
       "symbols-outline",
       "toggleterm",
-      "fugitive",
     },
   },
 }
