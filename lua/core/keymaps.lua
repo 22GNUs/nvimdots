@@ -1,5 +1,40 @@
 local M = {}
 
+local function termcodes(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+M.general = {
+  -- mode i
+  { "<C-b>", "<ESC>^i", desc = "beginning of line", mode = "i" },
+  { "<C-e>", "<End>", desc = "end of line", mode = "i" },
+  -- navigate within insert mode
+  { "<C-h>", "<Left>", "move left", mode = "i" },
+  { "<C-l>", "<Right>", desc = "move right", mode = "i" },
+  { "<C-j>", "<Down>", desc = "move down", mode = "i" },
+  { "<C-k>", "<Up>", desc = "move up", mode = "i" },
+
+  -- mode n
+  -- switch between windows
+  { "<ESC>", "<cmd> noh <CR>", desc = "no highlight" },
+  { "<C-h>", "<C-w>h", desc = "window left" },
+  { "<C-l>", "<C-w>l", desc = "window right" },
+  { "<C-j>", "<C-w>j", desc = "window down" },
+  { "<C-k>", "<C-w>k", desc = "window up" },
+  -- save
+  { "<C-s>", "<cmd> w <CR>", desc = "save file" },
+  -- Copy all
+  { "<C-c>", "<cmd> %y+ <CR>", desc = "copy whole file" },
+  -- line numbers
+  { "<leader>n", "<cmd> set nu! <CR>", desc = "toggle line number" },
+  { "<leader>rn", "<cmd> set rnu! <CR>", desc = "toggle relative number" },
+  -- new buffer
+  { "<leader>b", "<cmd> enew <CR>", desc = "new buffer" },
+
+  -- mode t
+  { "<C-x>", termcodes("<C-\\><C-N>"), desc = "escape terminal mode", mode = "t" },
+}
+
 M.nvimtree = {
   { "<C-n>", "<cmd> NvimTreeToggle <CR>", desc = "toggle nvimtree" },
   { "<leader>e", "<cmd> NvimTreeFocus <CR>", desc = "focus nvimtree" },

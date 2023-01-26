@@ -1,5 +1,6 @@
 require("core.options")
 require("gui")
+require("core.utils").bind_mappings("general")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
