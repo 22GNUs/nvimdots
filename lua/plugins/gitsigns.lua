@@ -19,7 +19,7 @@ return {
       },
       delete = {
         hl = "GitSignsDelete",
-        text = "",
+        text = "_",
         numhl = "GitSignsDeleteNr",
         linehl = "GitSignsDeleteLn",
       },
