@@ -6,7 +6,32 @@ return {
   config = function()
     local extensions_list = { "themes", "terms" }
     local telescope = require("telescope")
+    local telescope_actions = require("telescope.actions.set")
+
+    -- make telescop fold when open files
+    -- see: https://github.com/nvim-telescope/telescope.nvim/issues/559
+    local fixfolds = {
+      hidden = true,
+      attach_mappings = function(_)
+        telescope_actions.select:enhance({
+          post = function()
+            vim.cmd(":normal! zx zM")
+          end,
+        })
+        return true
+      end,
+    }
     local opts = {
+      pickers = {
+        buffers = fixfolds,
+        file_browser = fixfolds,
+        find_files = fixfolds,
+        git_files = fixfolds,
+        grep_string = fixfolds,
+        live_grep = fixfolds,
+        oldfiles = fixfolds,
+        -- I probably missed some
+      },
       defaults = {
         vimgrep_arguments = {
           "rg",
