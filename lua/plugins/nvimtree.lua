@@ -1,7 +1,6 @@
 return {
   {
     "nvim-tree/nvim-tree.lua",
-    ft = "alpha",
     keys = require("core.keymaps").nvimtree,
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()

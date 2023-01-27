@@ -9,6 +9,7 @@ return {
       "help",
       "terminal",
       "alpha",
+      "dashboard",
       "packer",
       "lspinfo",
       "TelescopePrompt",

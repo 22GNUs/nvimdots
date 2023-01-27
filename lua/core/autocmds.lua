@@ -1,3 +1,15 @@
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
+local M = {}
+
+M.reopen_lazy_when_alpha_ready = function()
+  if vim.o.filetype == "lazy" then
+    vim.cmd.close()
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "AlphaReady",
+      callback = function()
+        require("lazy").show()
+      end,
+    })
+  end
+end
+
+return M

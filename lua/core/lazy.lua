@@ -3,6 +3,7 @@ return {
     VeryLazy = "VeryLazy",
     OnFileOpen = { "BufRead", "BufNewFile" }, -- "BufWinEnter" },
     InsertEnter = "InsertEnter",
+    VimEnter = "VimEnter",
   },
   setup = function()
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
