@@ -210,6 +210,7 @@ return {
 
     local autocmds = require("core.autocmds")
     autocmds.reopen_lazy_when_alpha_ready()
+    autocmds.hide_status_line_when_alpha_open()
     alpha.setup(config)
   end,
 }

@@ -38,6 +38,7 @@ opt.splitright = true
 opt.termguicolors = true
 opt.timeoutlen = 400
 opt.undofile = true
+opt.swapfile = false
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
@@ -46,10 +47,13 @@ opt.updatetime = 250
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append("<>[]hl")
 
+-- list
 vim.o.list = true
 vim.o.listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
 vim.o.linebreak = true
 vim.o.showbreak = "↳  "
+
+-- transparency
 vim.o.winblend = transparency.winblend()
 vim.o.pumblend = transparency.pumblend()
 
