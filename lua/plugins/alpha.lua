@@ -139,7 +139,7 @@ return {
       },
       opts = {
         position = "center",
-        hl = "Type",
+        hl = "AlphaHeader",
         -- wrap = "overflow";
       },
     }

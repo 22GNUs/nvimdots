@@ -17,6 +17,7 @@ return {
           CmpBorder = { fg = border_color },
           CmpDocBorder = { fg = border_color },
           TelescopeBorder = { fg = border_color },
+          AlphaHeader = { fg = colors.lavender },
           RenamerBorder = { fg = border_color },
           RenamerTitle = { fg = colors.blue },
         }
