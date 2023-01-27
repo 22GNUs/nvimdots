@@ -11,7 +11,8 @@ return {
       local options = {
         filters = {
           dotfiles = false,
-          exclude = { vim.fn.stdpath("config") .. "/lua/custom" },
+          custom = { "^\\.git", ".DS_Store" },
+          exclude = {},
         },
         disable_netrw = true,
         hijack_netrw = true,
@@ -39,7 +40,18 @@ return {
         },
         actions = {
           open_file = {
-            resize_window = true,
+            quit_on_open = false,
+            resize_window = false,
+            window_picker = {
+              -- enable window picker to replace alpha when nvim-tree open a new file
+              -- see: https://github.com/nvim-tree/nvim-tree.lua/issues/1146
+              enable = true,
+              chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+              exclude = {
+                filetype = { "notify", "diff" },
+                buftype = { "terminal", "help" },
+              },
+            },
           },
         },
         renderer = {
