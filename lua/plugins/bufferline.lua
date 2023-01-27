@@ -37,6 +37,7 @@ return {
               text = " File Explorer",
               text_align = "left",
               separator = true,
+              highlight = "Directory",
               -- padding = 1,
             },
             {
