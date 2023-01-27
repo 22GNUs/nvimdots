@@ -4,7 +4,7 @@ local separator = { left = ui.left_separator, right = ui.right_separator }
 
 local filename = {
   "filename",
-  color = { bg = palettes.blue, fg = palettes.surface1 },
+  color = { bg = palettes.blue, fg = palettes.surface0 },
   separator = separator,
 }
 
@@ -13,6 +13,19 @@ local filetype = {
   icon_only = true,
   colored = true,
   color = { bg = palettes.surface0 },
+  separator = separator,
+}
+
+local space = {
+  function()
+    return " "
+  end,
+  color = { bg = palettes.base, fg = palettes.base },
+}
+
+local location = {
+  "location",
+  color = { bg = palettes.flamingo, fg = palettes.surface0 },
   separator = separator,
 }
 
@@ -42,9 +55,6 @@ local diff = {
 
 local modes = {
   "mode",
-  fmt = function(str)
-    return str:sub(1, 1)
-  end,
   color = { bg = palettes.peach, fg = palettes.base },
   separator = separator,
 }
@@ -109,23 +119,30 @@ return {
     sections = {
       lualine_a = {
         modes,
+        space,
       },
       lualine_b = {
         filetype,
         filename,
+        space,
+      },
+      lualine_c = {
         branch,
         diff,
+        space,
       },
-      lualine_c = {},
       lualine_x = {
         dia,
         lsp,
       },
       lualine_y = {
+        space,
         encoding,
         fileformat,
       },
-      lualine_z = {},
+      lualine_z = {
+        location,
+      },
     },
     inactive_sections = {
       lualine_a = {},
@@ -133,7 +150,7 @@ return {
       lualine_c = { "filename" },
       lualine_x = {},
       lualine_y = {},
-      lualine_z = { "location" },
+      lualine_z = {},
     },
     winbar = {},
     inactive_winbar = {},
