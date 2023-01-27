@@ -4,14 +4,14 @@ local diagnostics = require("ui.icons").diagnostics
 return {
   {
     "akinsho/bufferline.nvim",
-    dependencies = { "nvim-web-devicons", "ojroques/nvim-bufdel" },
+    dependencies = { "nvim-web-devicons", "famiu/bufdelete.nvim" },
     event = require("core.lazy").event.OnFileOpen,
     keys = require("core.keymaps").buffer,
     config = function()
       local opts = {
         options = {
           number = nil,
-          close_command = "BufDel", -- can be a string | function, see "Mouse actions"
+          close_command = "Bdelete", -- can be a string | function, see "Mouse actions"
           modified_icon = ui.modified,
           indicator = {
             icon = ui.indicator, -- this should be omitted if indicator style is not 'icon'

@@ -42,7 +42,7 @@ M.nvimtree = {
 }
 
 M.buffer = {
-  { "<leader>x", "<cmd> BufDel <CR>", desc = "close buffer" },
+  { "<leader>x", "<cmd> Bdelete <CR>", desc = "close buffer" },
   { "<Tab>", "<cmd> BufferLineCycleNext <CR>", desc = "goto next buffer" },
   { "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>", desc = "goto previous buffer" },
 }
