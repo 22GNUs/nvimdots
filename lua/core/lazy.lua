@@ -27,7 +27,18 @@ return {
         -- version = "*", -- try installing the latest stable version for plugins that support semver
       },
       install = { colorscheme = { "catppuccin" } },
-      checker = { enabled = true }, -- automatically check for plugin updates
+      checker = {
+        -- automatically check for plugin updates
+        enabled = true,
+        concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+        notify = true, -- get a notification when new updates are found
+        frequency = 43200, -- check for updates every 12 hours
+      },
+      change_detection = {
+        -- automatically check for config file changes and reload the ui
+        enabled = true,
+        notify = false, -- get a notification when changes are found
+      },
       performance = {
         rtp = {
           -- disable some rtp plugins
