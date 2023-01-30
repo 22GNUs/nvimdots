@@ -16,12 +16,9 @@ M.get_theme_highlights = function()
   end
 end
 
--- normally no need to call it, only when keybinds are dynamicly load
-M.bind_mappings = function(section, mapping_opts)
-  local keymaps = require("core.keymaps")
-  local values = keymaps[section]
-  if values ~= nil then
-    for _, binding in pairs(values) do
+M.bind_mappings_direct = function(bindings, mapping_opts)
+  if bindings ~= nil then
+    for _, binding in pairs(bindings) do
       local key = binding[1]
       local cmd = binding[2]
       local desc = binding.desc
@@ -32,6 +29,13 @@ M.bind_mappings = function(section, mapping_opts)
       vim.keymap.set(mode, key, cmd, opts)
     end
   end
+end
+
+-- normally no need to call it, only when keybinds are dynamicly load
+M.bind_mappings = function(section, mapping_opts)
+  local keymaps = require("core.keymaps")
+  local bindings = keymaps[section]
+  M.bind_mappings_direct(bindings, mapping_opts)
 end
 
 return M
