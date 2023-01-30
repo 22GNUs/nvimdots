@@ -4,7 +4,6 @@ return {
     "rafamadriz/friendly-snippets",
     module = true,
   },
-
   -- luasnip
   {
     "L3MON4D3/LuaSnip",
@@ -43,7 +42,6 @@ return {
       })
     end,
   },
-
   -- autopairs
   {
     "windwp/nvim-autopairs",
@@ -61,7 +59,6 @@ return {
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
-
   -- auto completion
   {
     "hrsh7th/nvim-cmp",

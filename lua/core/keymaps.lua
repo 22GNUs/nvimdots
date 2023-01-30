@@ -191,5 +191,4 @@ M.focus = {
   { "<leader>wl", ":FocusSplitRight<CR>", desc = "focus left" },
   { "<leader>wn", ":FocusSplitNicely<CR>", desc = "focus nicely" },
 }
-
 return M
