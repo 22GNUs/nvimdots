@@ -26,7 +26,9 @@ M.bind_mappings = function(section, mapping_opts)
       local cmd = binding[2]
       local desc = binding.desc
       local mode = binding.mode and binding.mode or "n"
-      local opts = merge_tb("force", { desc = desc }, mapping_opts or {})
+      local expr = binding.expr or false
+      local silent = binding.silent or true
+      local opts = merge_tb("force", { desc = desc, silent = silent, expr = expr }, mapping_opts or {})
       vim.keymap.set(mode, key, cmd, opts)
     end
   end
