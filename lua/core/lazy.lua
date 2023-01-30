@@ -1,9 +1,10 @@
 return {
   event = {
     VeryLazy = "VeryLazy",
-    OnFileOpen = { "BufReadPost", "BufNewFile" }, -- "BufWinEnter" },
+    BufOpen = { "BufReadPost", "BufNewFile" }, -- "BufWinEnter" },
     InsertEnter = "InsertEnter",
     VimEnter = "VimEnter",
+    BufReadPre = "BufReadPre",
   },
   setup = function()
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

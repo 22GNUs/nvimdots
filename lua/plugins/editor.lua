@@ -69,7 +69,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     ft = "gitcommit",
-    event = event.OnFileOpen,
+    event = event.BufReadPre,
     opts = {
       signs = {
         add = {

@@ -9,7 +9,7 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     name = "colorizer",
-    event = event.OnFileOpen,
+    event = event.BufOpen,
     config = function()
       require("colorizer").setup()
     end,
@@ -236,14 +236,14 @@ return {
   {
 
     "nvim-lualine/lualine.nvim",
-    event = event.OnFileOpen,
+    event = event.BufOpen,
     dependencies = { "nvim-web-devicons", "nvim-lspconfig" },
     opts = require("plugins.ui.lualine").opts,
   },
   -- blankline
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = require("core.lazy").event.OnFileOpen,
+    event = require("core.lazy").event.BufReadPre,
     name = "indent_blankline",
     opts = {
       space_char_blankline = " ",
@@ -279,7 +279,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     dependencies = { "nvim-web-devicons", "famiu/bufdelete.nvim" },
-    event = require("core.lazy").event.OnFileOpen,
+    event = require("core.lazy").event.BufOpen,
     keys = require("core.keymaps").buffer,
     config = function()
       local settings = require("core.settings")
@@ -346,7 +346,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     version = false, -- last release is way too old and doesn't work on Windows
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
-    event = event.OnFileOpen,
+    event = event.BufOpen,
     build = ":TSUpdate",
     opts = {
       ensure_installed = {

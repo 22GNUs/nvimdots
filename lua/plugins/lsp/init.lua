@@ -3,7 +3,7 @@ return {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
-    event = require("core.lazy").event.OnFileOpen,
+    event = require("core.lazy").event.BufReadPre,
     dependencies = { "plenary", "mason" },
     config = function()
       -- render lsp ui
@@ -78,7 +78,7 @@ return {
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "plenary", "nvim-lspconfig" },
-    event = require("core.lazy").event.OnFileOpen,
+    event = require("core.lazy").event.BufReadPre,
     config = function()
       local null_ls = require("null-ls")
       local b = null_ls.builtins
