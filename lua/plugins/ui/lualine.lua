@@ -55,8 +55,13 @@ local diff = {
 
 local modes = {
   "mode",
-  color = { bg = palettes.peach, fg = palettes.base },
+  fmt = function(str)
+    return str:sub(1, 1)
+  end,
+  -- use theme colors
+  -- color = { bg = palettes.peach, fg = palettes.base },
   separator = separator,
+  icon = { "", align = "left" },
 }
 
 local function getLspName()
@@ -89,12 +94,25 @@ local lsp = {
   color = { bg = palettes.pink, fg = palettes.base },
 }
 
-local theme_settings = require("core.settings").theme
+local theme = {
+  normal = {
+    a = { fg = palettes.base, bg = palettes.lavender },
+    b = {},
+    c = {},
+    x = {},
+    y = {},
+    z = {},
+  },
+  insert = { a = { fg = palettes.base, bg = palettes.peach } },
+  visual = { a = { fg = palettes.base, bg = palettes.sky } },
+  replace = { a = { fg = palettes.base, bg = palettes.maroon } },
+}
+
 return {
   opts = {
     options = {
       icons_enabled = true,
-      theme = theme_settings.name,
+      theme = theme,
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
       disabled_filetypes = {
@@ -110,13 +128,12 @@ return {
         winbar = 1000,
       },
     },
-
     sections = {
       lualine_a = {
         modes,
-        space,
       },
       lualine_b = {
+        space,
         filetype,
         filename,
         space,
