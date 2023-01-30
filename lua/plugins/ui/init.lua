@@ -344,11 +344,13 @@ return {
   -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
+    version = false, -- last release is way too old and doesn't work on Windows
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
     event = event.OnFileOpen,
     build = ":TSUpdate",
     opts = {
       ensure_installed = {
+        "help",
         "json",
         "toml",
         "markdown",
@@ -365,10 +367,10 @@ return {
       indent = {
         enable = true,
       },
+      context_commentstring = { enable = true, enable_autocmd = false },
     },
     config = function(_, opts)
-      local treesitter = require("nvim-treesitter.configs")
-      treesitter.setup(opts)
+      require("nvim-treesitter.configs").setup(opts)
     end,
   },
 }
