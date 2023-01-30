@@ -124,7 +124,6 @@ return {
       lualine_c = {
         branch,
         diff,
-        space,
       },
       lualine_x = {
         dia,
