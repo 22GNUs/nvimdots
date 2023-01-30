@@ -89,13 +89,8 @@ local lsp = {
   color = { bg = palettes.pink, fg = palettes.base },
 }
 
-local event = require("core.lazy").event
 local theme_settings = require("core.settings").theme
-
 return {
-  "nvim-lualine/lualine.nvim",
-  event = event.OnFileOpen,
-  dependencies = { "nvim-web-devicons", "nvim-lspconfig" },
   opts = {
     options = {
       icons_enabled = true,
