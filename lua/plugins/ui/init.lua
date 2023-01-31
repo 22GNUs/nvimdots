@@ -258,6 +258,8 @@ return {
         "TelescopePrompt",
         "TelescopeResults",
         "mason",
+        "lazy",
+        "NvimTree",
         "",
       },
       buftype_exclude = { "terminal" },
