@@ -132,6 +132,7 @@ M.telescope = {
   -- find
   { "<leader>ff", "<cmd> Telescope find_files <CR>", desc = "find files" },
   { "<leader>fa", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", desc = "find all" },
+  { "<leader>fr", "<cmd> Telescope oldfiles <CR>", desc = "find old files" },
   { "<leader>fw", "<cmd> Telescope live_grep <CR>", desc = "live grep" },
   { "<leader>fb", "<cmd> Telescope buffers <CR>", desc = "find buffers" },
   { "<leader>fh", "<cmd> Telescope help_tags <CR>", desc = "help page" },
