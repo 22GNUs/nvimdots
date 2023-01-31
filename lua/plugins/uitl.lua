@@ -8,7 +8,6 @@ return {
   -- wakatime
   {
     "wakatime/vim-wakatime",
-    -- enable just for some filetypes
-    ft = { "lua", "go", "markdown" },
+    event = require("core.lazy").event.VeryLazy,
   },
 }
