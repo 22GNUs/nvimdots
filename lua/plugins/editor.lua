@@ -5,7 +5,7 @@ return {
   -- which key
   {
     "folke/which-key.nvim",
-    keys = { "<leader>", '"', "'", "`" },
+    keys = { "<leader>", '"', "'", "`", "z", "g" },
     opts = {
       icons = {
         breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
