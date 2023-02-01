@@ -24,9 +24,8 @@ return {
   -- obsidian
   {
     "epwalsh/obsidian.nvim",
-    ft = "markdown",
+    event = require("core.lazy").event.VeryLazy,
     cond = function()
-      vim.pretty_print(vim.inspect())
       -- only load when edit markdown and in vault dir
       return vim.fn.getcwd():find("^" .. conf.ob.vault_dir) ~= nil
     end,
@@ -39,6 +38,23 @@ return {
       daily_notes = {
         folder = conf.ob.daily_path,
       },
+      note_frontmatter_func = function(note)
+        local out = {
+          id = note.id,
+          aliases = note.aliases,
+          tags = note.tags,
+          title = note.path.filename:match("/([^/]+).md$"),
+          date = os.time(),
+        }
+        -- `note.metadata` contains any manually added fields in the frontmatter.
+        -- So here we just make sure those fields are kept in the frontmatter.
+        if note.metadata ~= nil and require("obsidian").util.table_length(note.metadata) > 0 then
+          for k, v in pairs(note.metadata) do
+            out[k] = v
+          end
+        end
+        return out
+      end,
     },
     config = function(_, opts)
       require("obsidian").setup(opts)
