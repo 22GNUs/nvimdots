@@ -9,7 +9,7 @@ return {
   },
   transparency = {
     winblend = function()
-      return vim.g.transparency and 0 or 25
+      return vim.g.transparency and 0 or 15
     end,
     pumblend = function()
       return 0

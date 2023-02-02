@@ -1,7 +1,7 @@
 local g = vim.g
 local o = vim.opt
 if g.neovide ~= nil then
-  o.guifont = { "Iosevka Mayukai Original", ":h18" }
+  o.guifont = { "IosevkaTerm Nerd Font Mono", ":h18" }
   -- g.neovide_fullscreen = true
   g.neovide_scroll_animation_length = 0.6
   g.neovide_no_idle = true
@@ -21,8 +21,8 @@ if g.neovide ~= nil then
   end
 
   -- blur
-  g.neovide_floating_blur_amount_x = 1.0
-  g.neovide_floating_blur_amount_y = 1.0
+  g.neovide_floating_blur_amount_x = 2.0
+  g.neovide_floating_blur_amount_y = 2.0
   -- vfx mode
   -- g.neovide_cursor_vfx_mode = "ripple"
   g.neovide_cursor_vfx_mode = "railgun"
