@@ -6,7 +6,7 @@ g.mapleader = " "
 g.transparency = true
 g.theme_switcher_loaded = false
 
-opt.laststatus = 3 -- global statusline
+opt.laststatus = 0 -- global statusline
 opt.showmode = false
 
 opt.clipboard = "unnamedplus"

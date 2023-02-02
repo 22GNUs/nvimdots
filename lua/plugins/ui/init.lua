@@ -227,7 +227,6 @@ return {
 
       local autocmds = require("core.autocmds")
       autocmds.reopen_lazy_when_alpha_ready()
-      autocmds.hide_status_line_when_alpha_open()
       autocmds.open_alpha_if_no_buffers_is_opening()
       alpha.setup(config)
     end,

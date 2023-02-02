@@ -12,15 +12,6 @@ M.reopen_lazy_when_alpha_ready = function()
   end
 end
 
-M.hide_status_line_when_alpha_open = function()
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "alpha",
-    callback = function()
-      vim.opt.laststatus = 0
-    end,
-  })
-end
-
 M.open_alpha_if_no_buffers_is_opening = function()
   -- see: https://github.com/goolord/alpha-nvim/discussions/85
   local alpha_on_empty = "alpha_on_empty"
