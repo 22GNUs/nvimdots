@@ -192,4 +192,33 @@ M.focus = {
   { "<leader>wl", ":FocusSplitRight<CR>", desc = "focus left" },
   { "<leader>wn", ":FocusSplitNicely<CR>", desc = "focus nicely" },
 }
+
+M.toggleterm = {
+  { "<leader>th", ":ToggleTerm<CR>", desc = "toggle horizontal term", silent = true },
+  { "<leader>tf", ":ToggleTerm direction=float<CR>", desc = "toggle float term", silent = true },
+  {
+    "<leader>lg",
+    function()
+      local Terminal = require("toggleterm.terminal").Terminal
+      local lazygit = Terminal:new({
+        cmd = "lazygit",
+        direction = "float",
+        float_opts = {
+          border = "double",
+        },
+        hidden = true,
+        on_open = function(term)
+          vim.cmd("startinsert!")
+          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+        end,
+        on_close = function()
+          vim.cmd("startinsert!")
+        end,
+      })
+      lazygit:toggle()
+    end,
+    desc = "toggle lazygit term",
+    silent = true,
+  },
+}
 return M
