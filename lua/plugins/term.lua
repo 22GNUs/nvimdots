@@ -2,7 +2,6 @@ local paletts = require("core.utils").get_theme_paletts()
 return {
   "akinsho/toggleterm.nvim",
   keys = require("core.keymaps").toggleterm,
-  version = "v2.*",
   opts = {
     open_mapping = false, -- [[<c-\>]],
     hide_numbers = true, -- hide the number column in toggleterm buffers
