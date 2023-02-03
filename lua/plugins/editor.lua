@@ -1,5 +1,6 @@
 local transparency = require("core.settings").transparency
 local event = require("core.lazy").event
+local keymaps = require("core.keymaps")
 
 return {
   -- which key
@@ -12,7 +13,6 @@ return {
         separator = "  ", -- symbol used between a key and it's label
         group = "+", -- symbol prepended to a group
       },
-
       plugins = {
         marks = false, -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -27,35 +27,22 @@ return {
           g = true, -- bindings for prefixed with g
         },
       },
-      operators = { gc = "Comments" },
-
-      popup_mappings = {
-        scroll_down = "<c-d>", -- binding to scroll down inside the popup
-        scroll_up = "<c-u>", -- binding to scroll up inside the popup
-      },
-
       window = {
-        border = "none", -- none, single, double, shadow
+        border = "single", -- none, single, double, shadow
         position = "bottom", -- bottom, top
         margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
         padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
         winblend = transparency.winblend(),
       },
       layout = {
-        height = { min = 4, max = 25 }, -- min and max height of the columns
-        width = { min = 20, max = 50 }, -- min and max width of the columns
         spacing = 6, -- spacing between columns
-        align = "left", -- align columns left, center or right
       },
-
       hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
-
       triggers_blacklist = {
         -- list of mode / prefixes that should never be hooked by WhichKey
         i = { "j", "k" },
         v = { "j", "k" },
       },
-
       disable = {
         buftypes = {},
         filetypes = { "TelescopePrompt" },
@@ -63,6 +50,14 @@ return {
     },
     init = function()
       require("core.utils").bind_mappings("whichkey")
+    end,
+    config = function(_, opts)
+      -- set timeoutlen for whichkey buffer
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      local wk = require("which-key")
+      wk.setup(opts)
+      wk.register(keymaps.groups)
     end,
   },
   -- gitsigns
@@ -104,13 +99,13 @@ return {
         },
       },
     },
-    keys = require("core.keymaps").gitsigns,
+    keys = keymaps.gitsigns,
   },
   -- focus
   {
     "beauwilliams/focus.nvim",
     name = "focus",
-    keys = require("core.keymaps").focus,
+    keys = keymaps.focus,
     config = function(self)
       require(self.name).setup()
     end,
@@ -118,7 +113,7 @@ return {
   -- nvimtree
   {
     "nvim-tree/nvim-tree.lua",
-    keys = require("core.keymaps").nvimtree,
+    keys = keymaps.nvimtree,
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
       local present, nvimtree = pcall(require, "nvim-tree")
@@ -219,7 +214,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-    keys = require("core.keymaps").telescope,
+    keys = keymaps.telescope,
     config = function()
       local extensions_list = { "themes", "terms" }
       local telescope = require("telescope")

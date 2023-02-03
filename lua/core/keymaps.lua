@@ -26,10 +26,10 @@ M.general = {
   -- Copy all
   { "<C-c>", "<cmd> %y+ <CR>", desc = "copy whole file" },
   -- line numbers
-  { "<leader>n", "<cmd> set nu! <CR>", desc = "toggle line number" },
-  { "<leader>rn", "<cmd> set rnu! <CR>", desc = "toggle relative number" },
+  { "<leader>ln", "<cmd> set nu! <CR>", desc = "toggle line number" },
+  { "<leader>lr", "<cmd> set rnu! <CR>", desc = "toggle relative number" },
   -- new buffer
-  { "<leader>b", "<cmd> enew <CR>", desc = "new buffer" },
+  { "<leader>bn", "<cmd> enew <CR>", desc = "new buffer" },
   { "<leader>ss", "<cmd> source % <CR>", desc = "source current" },
 
   -- mode t
@@ -49,14 +49,14 @@ M.buffer = {
 
 M.whichkey = {
   {
-    "<leader>wK",
+    "<leader>ka",
     function()
       vim.cmd("WhichKey")
     end,
     desc = "which-key all keymaps",
   },
   {
-    "<leader>wk",
+    "<leader>kq",
     function()
       local input = vim.fn.input("WhichKey: ")
       vim.cmd("WhichKey " .. input)
@@ -67,7 +67,7 @@ M.whichkey = {
 
 M.gitsigns = {
   {
-    "]c",
+    "]g",
     function()
       if vim.wo.diff then
         return "]c"
@@ -79,9 +79,8 @@ M.gitsigns = {
     end,
     desc = "jump to next hunk",
   },
-
   {
-    "[c",
+    "[g",
     function()
       if vim.wo.diff then
         return "[c"
@@ -93,24 +92,20 @@ M.gitsigns = {
     end,
     desc = "jump to prev hunk",
   },
-
-  -- Actions
   {
-    "<leader>rh",
+    "<leader>gr",
     function()
       require("gitsigns").reset_hunk()
     end,
     desc = "reset hunk",
   },
-
   {
-    "<leader>ph",
+    "<leader>gh",
     function()
       require("gitsigns").preview_hunk()
     end,
     desc = "preview hunk",
   },
-
   {
     "<leader>gb",
     function()
@@ -118,9 +113,8 @@ M.gitsigns = {
     end,
     desc = "blame line",
   },
-
   {
-    "<leader>td",
+    "<leader>gd",
     function()
       require("gitsigns").toggle_deleted()
     end,
@@ -137,31 +131,35 @@ M.telescope = {
   { "<leader>fb", "<cmd> Telescope buffers <CR>", desc = "find buffers" },
   { "<leader>fh", "<cmd> Telescope help_tags <CR>", desc = "help page" },
   { "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "find oldfiles" },
-  { "<leader>tk", "<cmd> Telescope keymaps <CR>", desc = "show keys" },
+  { "<leader>ft", "<cmd> Telescope keymaps <CR>", desc = "show keys" },
 
   -- git
-  { "<leader>cm", "<cmd> Telescope git_commits <CR>", desc = "git commits" },
+  { "<leader>gm", "<cmd> Telescope git_commits <CR>", desc = "git commits" },
   { "<leader>gt", "<cmd> Telescope git_status <CR>", desc = "git status" },
-
-  -- pick a hidden term
-  { "<leader>pt", "<cmd> Telescope terms <CR>", desc = "pick hidden term" },
 }
 
 M.lspconfig = {
   { "gD", vim.lsp.buf.declaration, desc = "lsp declaration" },
   { "gd", vim.lsp.buf.definition, desc = "lsp definition" },
   { "gr", vim.lsp.buf.references, desc = "lsp references" },
-  { "K", vim.lsp.buf.hover, desc = "lsp hover" },
   { "gi", vim.lsp.buf.implementation, desc = "lsp implementation" },
-  { "[d", vim.diagnostic.goto_prev, desc = "goto prev" },
-  { "d]", vim.diagnostic.goto_next, desc = "goto_next" },
-  { "<leader>ls", vim.lsp.buf.signature_help, desc = "lsp signature_help" },
-  { "<leader>D", vim.lsp.buf.type_definition, desc = "lsp definition type" },
+  { "[d", vim.diagnostic.goto_prev, desc = "goto prev diagnostic" },
+  { "]d", vim.diagnostic.goto_next, desc = "goto next diagnostic" },
+  { "<leader>ck", vim.lsp.buf.hover, desc = "lsp hover" },
+  { "<leader>cs", vim.lsp.buf.signature_help, desc = "lsp signature_help" },
+  { "<leader>cd", vim.lsp.buf.type_definition, desc = "lsp definition type" },
   { "<leader>ca", vim.lsp.buf.code_action, desc = "lsp code_action" },
-  { "<leader>f", vim.diagnostic.open_float, desc = "floating diagnostic" },
-  { "<leader>q", vim.diagnostic.setloclist, desc = "diagnostic setloclist" },
+  { "<leader>df", vim.diagnostic.open_float, desc = "floating diagnostic" },
+  { "<leader>dq", vim.diagnostic.setloclist, desc = "diagnostic setloclist" },
   { "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "add workspace folder" },
   { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "remove workspace folder" },
+  {
+    "<leader>ws",
+    function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end,
+    desc = "show workspace folders",
+  },
   {
     "<leader>ra",
     function()
@@ -176,28 +174,21 @@ M.lspconfig = {
     end,
     desc = "lsp formatting",
   },
-  {
-    "<leader>wl",
-    function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end,
-    desc = "list workspace folders",
-  },
 }
 
 M.focus = {
-  { "<leader>wh", ":FocusSplitLeft<CR>", desc = "focus left" },
-  { "<leader>wj", ":FocusSplitDown<CR>", desc = "focus left" },
-  { "<leader>wk", ":FocusSplitUp<CR>", desc = "focus left" },
-  { "<leader>wl", ":FocusSplitRight<CR>", desc = "focus left" },
-  { "<leader>wn", ":FocusSplitNicely<CR>", desc = "focus nicely" },
+  { "<leader>wh", ":FocusSplitLeft<CR>", desc = "focus left", silent = true },
+  { "<leader>wj", ":FocusSplitDown<CR>", desc = "focus left", silent = true },
+  { "<leader>wk", ":FocusSplitUp<CR>", desc = "focus left", silent = true },
+  { "<leader>wl", ":FocusSplitRight<CR>", desc = "focus left", silent = true },
+  { "<leader>wn", ":FocusSplitNicely<CR>", desc = "focus nicely", silent = true },
 }
 
 M.toggleterm = {
   { "<leader>th", ":ToggleTerm<CR>", desc = "toggle horizontal term", silent = true },
   { "<leader>tf", ":ToggleTerm direction=float<CR>", desc = "toggle float term", silent = true },
   {
-    "<leader>lg",
+    "<leader>tg",
     function()
       local Terminal = require("toggleterm.terminal").Terminal
       local lazygit = Terminal:new({
@@ -220,5 +211,24 @@ M.toggleterm = {
     desc = "toggle lazygit term",
     silent = true,
   },
+}
+
+M.groups = {
+  mode = { "n", "v" },
+  ["g"] = { name = "+goto" },
+  ["gz"] = { name = "+surround" },
+  ["]"] = { name = "+next" },
+  ["["] = { name = "+prev" },
+  ["<leader>b"] = { name = "+buffer" },
+  ["<leader>c"] = { name = "+code" },
+  ["<leader>d"] = { name = "+diagnostic" },
+  ["<leader>f"] = { name = "+find/format" },
+  ["<leader>g"] = { name = "+git" },
+  ["<leader>k"] = { name = "+keymap" },
+  ["<leader>l"] = { name = "+line" },
+  ["<leader>r"] = { name = "+rename/reset" },
+  ["<leader>s"] = { name = "+source" },
+  ["<leader>t"] = { name = "+terminal" },
+  ["<leader>w"] = { name = "+window/workspace" },
 }
 return M
