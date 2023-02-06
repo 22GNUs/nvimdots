@@ -23,6 +23,8 @@ M.general = {
   { "<C-k>", "<C-w>k", desc = "window up" },
   -- save
   { "<C-s>", "<cmd> w <CR>", desc = "save file" },
+  -- over P to paste last yank(exclude last delete)
+  { "P", '"0p', desc = "paste last yank" },
   -- Copy all
   { "<C-c>", "<cmd> %y+ <CR>", desc = "copy whole file" },
   -- line numbers
