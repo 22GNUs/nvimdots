@@ -31,6 +31,8 @@ M.general = {
   -- new buffer
   { "<leader>bn", "<cmd> enew <CR>", desc = "new buffer" },
   { "<leader>ss", "<cmd> source % <CR>", desc = "source current" },
+  -- update plugins
+  { "<leader>uu", ":Lazy update <CR>", desc = "Update plugins" },
 
   -- mode t
   { "<C-x>", termcodes("<C-\\><C-N>"), desc = "escape terminal mode", mode = "t" },
@@ -229,6 +231,7 @@ M.groups = {
   ["<leader>r"] = { name = "+rename/reset" },
   ["<leader>s"] = { name = "+source" },
   ["<leader>t"] = { name = "+terminal" },
+  ["<leader>u"] = { name = "+update" },
   ["<leader>w"] = { name = "+window/workspace" },
 }
 return M
