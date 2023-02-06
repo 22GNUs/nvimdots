@@ -32,6 +32,7 @@ return {
     dependencies = { "nvim-cmp", "telescope.nvim" },
     opts = {
       dir = conf.ob.vault_dir,
+      use_advanced_uri = true,
       completion = {
         nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
       },
