@@ -10,18 +10,20 @@ return {
         light = "latte",
         dark = "mocha",
       },
-      custom_highlights = function(colors)
-        local border_color = colors.blue
-        return {
-          -- for border
-          CmpBorder = { fg = border_color },
-          CmpDocBorder = { fg = border_color },
-          TelescopeBorder = { fg = border_color },
-          AlphaHeader = { fg = colors.lavender },
-          RenamerBorder = { fg = border_color },
-          RenamerTitle = { fg = colors.blue },
-        }
-      end,
+      highlight_overrides = {
+        mocha = function(colors)
+          local border_color = colors.blue
+          return {
+            -- for border
+            CmpBorder = { fg = border_color },
+            CmpDocBorder = { fg = border_color },
+            TelescopeBorder = { fg = border_color },
+            AlphaHeader = { fg = colors.lavender },
+            RenamerBorder = { fg = border_color },
+            RenamerTitle = { fg = colors.blue },
+          }
+        end,
+      },
       transparent_background = vim.g.transparency,
       show_end_of_buffer = false, -- show the '~' characters after the end of buffers
       term_colors = true,
@@ -46,7 +48,6 @@ return {
         types = {},
         operators = {},
       },
-      color_overrides = {},
       integrations = {
         cmp = true,
         mason = true,
