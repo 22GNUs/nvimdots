@@ -217,6 +217,10 @@ M.toggleterm = {
   },
 }
 
+M.zenmode = {
+  { "<leader>tz", ":ZenMode<CR>", desc = "toggle zen mode", silent = true },
+}
+
 M.groups = {
   mode = { "n", "v" },
   ["g"] = { name = "+goto" },
@@ -232,7 +236,7 @@ M.groups = {
   ["<leader>l"] = { name = "+line" },
   ["<leader>r"] = { name = "+refactor/reset" },
   ["<leader>s"] = { name = "+source" },
-  ["<leader>t"] = { name = "+terminal" },
+  ["<leader>t"] = { name = "+terminal/toggle" },
   ["<leader>u"] = { name = "+update" },
   ["<leader>w"] = { name = "+window/workspace" },
 }

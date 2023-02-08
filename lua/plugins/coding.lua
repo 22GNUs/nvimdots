@@ -183,4 +183,10 @@ return {
       cmp.setup(options)
     end,
   },
+  -- zen-mode
+  {
+    "folke/zen-mode.nvim",
+    keys = require("core.keymaps").zenmode,
+    cmd = { "ZenMode" },
+  },
 }
