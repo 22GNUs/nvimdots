@@ -371,6 +371,15 @@ return {
       context_commentstring = { enable = true, enable_autocmd = false },
     },
     config = function(_, opts)
+      -- see: https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
+      -- fold settings
+      vim.wo.foldmethod = "expr"
+      vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+      vim.o.foldtext =
+        [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+      vim.wo.fillchars = "fold:\\"
+      vim.wo.foldnestmax = 5
+      vim.wo.foldminlines = 1
       require("nvim-treesitter.configs").setup(opts)
     end,
   },

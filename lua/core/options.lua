@@ -57,15 +57,6 @@ vim.o.showbreak = "↳  "
 vim.o.winblend = transparency.winblend()
 vim.o.pumblend = transparency.pumblend()
 
--- see: https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
--- fold settings
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
-vim.wo.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
-vim.wo.fillchars = "fold:\\"
-vim.wo.foldnestmax = 5
-vim.wo.foldminlines = 1
-
 -- close other buffers and keep current opened only
 -- see: https://tech.serhatteker.com/post/2020-06/close-all-buffers-but-current-in-vim/
 vim.cmd("silent! command! BufCurOnly execute '%bdelete|edit#|bdelete#'")
