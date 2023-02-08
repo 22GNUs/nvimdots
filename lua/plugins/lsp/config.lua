@@ -27,7 +27,7 @@ return {
   servers = { "gopls" },
   on_attach = on_attach,
   capabilities = capabilities,
-  insure_installed = {
+  ensure_installed = {
     -- lua stuff
     "lua-language-server",
     -- go
