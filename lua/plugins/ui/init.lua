@@ -380,6 +380,7 @@ return {
       vim.wo.fillchars = "fold:\\"
       vim.wo.foldnestmax = 5
       vim.wo.foldminlines = 1
+      vim.wo.foldenable = false
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
