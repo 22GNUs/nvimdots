@@ -24,9 +24,11 @@ capabilities.textDocument.completion.completionItem = {
 }
 
 return {
-  servers = { "gopls" },
   on_attach = on_attach,
   capabilities = capabilities,
+  -- lsp servers
+  servers = { "gopls", "jdtls" },
+  -- mason ensure_installed
   ensure_installed = {
     -- lua stuff
     "lua-language-server",
@@ -37,4 +39,26 @@ return {
     -- json
     "json-lsp",
   },
+  -- null-ls sources
+  sources = function(b)
+    return {
+      -- Lua
+      b.formatting.stylua,
+      b.diagnostics.luacheck.with({ extra_args = { "--global vim" } }),
+
+      -- Shell
+      b.formatting.shfmt,
+      b.diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
+
+      -- Golang
+      b.formatting.gofmt,
+
+      -- Es
+      b.formatting.eslint,
+      b.diagnostics.eslint,
+
+      -- Java
+      b.formatting.google_java_format,
+    }
+  end,
 }

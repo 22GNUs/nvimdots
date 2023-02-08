@@ -1,4 +1,5 @@
 local ui = require("ui.icons").ui
+local cfg = require("plugins.lsp.config")
 return {
   -- lspconfig
   {
@@ -9,7 +10,6 @@ return {
       -- render lsp ui
       require("ui.lsp")
       local lspconfig = require("lspconfig")
-      local cfg = require("plugins.lsp.config")
       local on_attach = cfg.on_attach
       local capabilities = cfg.capabilities
       for _, lsp in ipairs(cfg.servers) do
@@ -46,7 +46,7 @@ return {
     name = "mason",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
     opts = {
-      ensure_installed = require("plugins.lsp.config").ensure_installed,
+      ensure_installed = cfg.ensure_installed,
       PATH = "prepend",
       ui = {
         icons = {
@@ -90,24 +90,7 @@ return {
       local null_ls = require("null-ls")
       local b = null_ls.builtins
       local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-      local sources = {
-
-        -- Lua
-        b.formatting.stylua,
-        b.diagnostics.luacheck.with({ extra_args = { "--global vim" } }),
-
-        -- Shell
-        b.formatting.shfmt,
-        b.diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
-
-        -- Golang
-        b.formatting.gofmt,
-
-        -- Es
-        b.formatting.eslint,
-        b.diagnostics.eslint,
-      }
+      local sources = cfg.sources(b)
       null_ls.setup({
         debug = true,
         sources = sources,
