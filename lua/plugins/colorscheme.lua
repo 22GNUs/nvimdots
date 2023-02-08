@@ -22,6 +22,7 @@ return {
             AlphaHeader = { fg = cp.lavender },
             RenamerBorder = { fg = border_color },
             RenamerTitle = { fg = cp.blue },
+            Folded = { bg = cp.none },
 
             -- For treesitter.
             ["@field"] = { fg = cp.rosewater },
