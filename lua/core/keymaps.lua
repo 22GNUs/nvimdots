@@ -165,7 +165,7 @@ M.lspconfig = {
     desc = "show workspace folders",
   },
   {
-    "<leader>ra",
+    "<leader>rr",
     function()
       require("ui.renamer").open()
     end,
@@ -182,9 +182,9 @@ M.lspconfig = {
 
 M.focus = {
   { "<leader>wh", ":FocusSplitLeft<CR>", desc = "focus left", silent = true },
-  { "<leader>wj", ":FocusSplitDown<CR>", desc = "focus left", silent = true },
-  { "<leader>wk", ":FocusSplitUp<CR>", desc = "focus left", silent = true },
-  { "<leader>wl", ":FocusSplitRight<CR>", desc = "focus left", silent = true },
+  { "<leader>wj", ":FocusSplitDown<CR>", desc = "focus down", silent = true },
+  { "<leader>wk", ":FocusSplitUp<CR>", desc = "focus up", silent = true },
+  { "<leader>wl", ":FocusSplitRight<CR>", desc = "focus right", silent = true },
   { "<leader>wn", ":FocusSplitNicely<CR>", desc = "focus nicely", silent = true },
 }
 
@@ -230,7 +230,7 @@ M.groups = {
   ["<leader>g"] = { name = "+git" },
   ["<leader>k"] = { name = "+keymap" },
   ["<leader>l"] = { name = "+line" },
-  ["<leader>r"] = { name = "+rename/reset" },
+  ["<leader>r"] = { name = "+refactor/reset" },
   ["<leader>s"] = { name = "+source" },
   ["<leader>t"] = { name = "+terminal" },
   ["<leader>u"] = { name = "+update" },
