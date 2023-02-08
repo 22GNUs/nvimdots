@@ -1,7 +1,7 @@
 local g = vim.g
 local o = vim.opt
 if g.neovide ~= nil then
-  o.guifont = { "IosevkaTerm Nerd Font Mono,Sarasa UI SC", ":h18" }
+  o.guifont = { "IosevkaTerm Nerd Font Mono,Sarasa UI SC", ":h17" }
   -- g.neovide_fullscreen = true
   g.neovide_scroll_animation_length = 0.6
   g.neovide_no_idle = true
@@ -14,10 +14,10 @@ if g.neovide ~= nil then
   -- have bugs when --multigrid enable, disable for now, see https://github.com/neovide/neovide/issues/720
   if g.transparency then
     g.transparency = false
+    o.cmdheight = 0
     -- g.neovide_transparency = 0.0
     -- g.transparency = 0.97
-    -- local colors = require("core.utils").get_theme_paletts()
-    -- vim.cmd("let g:neovide_background_color = '" .. colors.base .. "'.printf('%x', float2nr(255 * g:transparency))")
+    -- vim.cmd("let g:neovide_background_color = '" .. "#1E1E2E" .. "'.printf('%x', float2nr(255 * g:transparency))")
   end
 
   -- blur
