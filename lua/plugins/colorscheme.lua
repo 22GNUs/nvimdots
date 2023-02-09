@@ -24,6 +24,10 @@ return {
             RenamerTitle = { fg = cp.blue },
             Folded = { bg = cp.none },
 
+            -- For trouble.nvim
+            TroubleNormal = { bg = cp.base },
+            TroubleText = { fg = cp.maroon },
+
             -- languages syntax
             Keyword = { fg = cp.pink },
             Type = { fg = cp.blue },

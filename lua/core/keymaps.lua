@@ -154,7 +154,8 @@ M.lspconfig = {
   { "<leader>cd", vim.lsp.buf.type_definition, desc = "lsp definition type" },
   { "<leader>ca", vim.lsp.buf.code_action, desc = "lsp code_action" },
   { "<leader>df", vim.diagnostic.open_float, desc = "floating diagnostic" },
-  { "<leader>dq", vim.diagnostic.setloclist, desc = "diagnostic setloclist" },
+  -- use trouble instead
+  -- { "<leader>dq", vim.diagnostic.setloclist, desc = "diagnostic setloclist" },
   { "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "add workspace folder" },
   { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "remove workspace folder" },
   {
@@ -219,6 +220,13 @@ M.toggleterm = {
 
 M.zenmode = {
   { "<leader>tz", ":ZenMode<CR>", desc = "toggle zen mode", silent = true },
+}
+
+M.trouble = {
+  { "<leader>dx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
+  { "<leader>dX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
+  { "<leader>dL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+  { "<leader>dq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
 }
 
 M.groups = {

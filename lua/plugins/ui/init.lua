@@ -259,6 +259,7 @@ return {
         "mason",
         "lazy",
         "NvimTree",
+        "Trouble",
         "",
       },
       buftype_exclude = { "terminal" },

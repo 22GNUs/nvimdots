@@ -267,6 +267,11 @@ return {
           buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
           mappings = {
             n = { ["q"] = require("telescope.actions").close },
+            i = {
+              ["<c-t>"] = function(...)
+                return require("trouble.providers.telescope").open_with_trouble(...)
+              end,
+            },
           },
         },
       }
@@ -278,5 +283,12 @@ return {
         end
       end)
     end,
+  },
+  -- better diagnostics list and others
+  {
+    "folke/trouble.nvim",
+    cmd = { "TroubleToggle", "Trouble" },
+    opts = { use_diagnostic_signs = true },
+    keys = keymaps.trouble,
   },
 }
