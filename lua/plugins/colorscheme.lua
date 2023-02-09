@@ -15,13 +15,19 @@ return {
         mocha = function(cp)
           local border_color = cp.blue
           return {
-            -- for border
+            -- for borders
             CmpBorder = { fg = border_color },
             CmpDocBorder = { fg = border_color },
             TelescopeBorder = { fg = border_color },
             AlphaHeader = { fg = cp.lavender },
+
+            -- Renamer
             RenamerBorder = { fg = border_color },
             RenamerTitle = { fg = cp.blue },
+
+            -- Remove cursorLine bg
+            CursorLine = { bg = cp.none },
+            -- Hide fold bg
             Folded = { bg = cp.none },
 
             -- For trouble.nvim
