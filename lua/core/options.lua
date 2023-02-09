@@ -29,6 +29,9 @@ opt.number = true
 opt.numberwidth = 2
 opt.ruler = false
 
+-- Relative line number as default
+opt.rnu = true
+
 -- disable nvim intro
 opt.shortmess:append("sI")
 
