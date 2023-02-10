@@ -12,7 +12,6 @@ return {
       },
       color_overrides = {
         mocha = {
-          nord_blue = "#8bc2f0",
           lavender = "#c7d1ff",
           baby_pink = "#ffa5c3",
           peach = "#F8BD96",
@@ -62,9 +61,9 @@ return {
             ["@function.macro"] = { fg = cp.baby_pink, style = {} },
             ["@parameter"] = { fg = cp.lavender },
             ["@keyword"] = { fg = cp.baby_pink, style = { "italic" } },
-            ["@keyword.function"] = { fg = cp.nord_blue },
-            ["@keyword.return"] = { fg = cp.nord_blue, style = {} },
-            ["@method"] = { fg = cp.nord_blue, style = { "italic" } },
+            ["@keyword.function"] = { fg = cp.blue },
+            ["@keyword.return"] = { fg = cp.blue, style = {} },
+            ["@method"] = { fg = cp.blue, style = { "italic" } },
             ["@namespace"] = { fg = cp.pink, style = {} },
             ["@punctuation.delimiter"] = { fg = cp.teal },
             ["@punctuation.bracket"] = { fg = cp.overlay2 },
