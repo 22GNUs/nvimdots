@@ -12,13 +12,15 @@ return {
       },
       color_overrides = {
         mocha = {
-          lavender = "#c7d1ff",
+          -- new added
+          sun = "#FFE9B6",
           baby_pink = "#ffa5c3",
+          -- overrided
+          lavender = "#c7d1ff",
           peach = "#F8BD96",
           teal = "#B5E8E0",
           green = "#ABE9B3",
           yellow = "#FAE3B0",
-          sun = "#FFE9B6",
           blue = "#89B4FA",
           red = "#F38BA8",
           mauve = "#d0a9e5",
@@ -64,7 +66,7 @@ return {
             ["@keyword.function"] = { fg = cp.blue },
             ["@keyword.return"] = { fg = cp.blue, style = {} },
             ["@method"] = { fg = cp.blue, style = { "italic" } },
-            ["@namespace"] = { fg = cp.pink, style = {} },
+            ["@namespace"] = { fg = cp.text, style = {} },
             ["@punctuation.delimiter"] = { fg = cp.teal },
             ["@punctuation.bracket"] = { fg = cp.overlay2 },
             ["@type"] = { fg = cp.lavender },
