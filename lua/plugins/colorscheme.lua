@@ -14,7 +14,8 @@ return {
         mocha = {
           -- new added
           sun = "#FFE9B6",
-          baby_pink = "#ffa5c3",
+          baby_pink = "#FFA5C3",
+          nord_blue = "#8CB2F0",
           -- overrided
           lavender = "#c7d1ff",
           peach = "#F8BD96",
@@ -65,7 +66,7 @@ return {
             ["@keyword"] = { fg = cp.baby_pink, style = { "italic" } },
             ["@keyword.function"] = { fg = cp.blue },
             ["@keyword.return"] = { fg = cp.blue, style = {} },
-            ["@method"] = { fg = cp.blue, style = { "italic" } },
+            ["@method"] = { fg = cp.nord_blue, style = { "italic" } },
             ["@namespace"] = { fg = cp.text, style = {} },
             ["@punctuation.delimiter"] = { fg = cp.teal },
             ["@punctuation.bracket"] = { fg = cp.overlay2 },
