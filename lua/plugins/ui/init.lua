@@ -385,4 +385,12 @@ return {
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
+  -- neoscroll
+  {
+    "karb94/neoscroll.nvim",
+    event = event.BufReadPre,
+    config = function()
+      require("neoscroll").setup()
+    end,
+  },
 }
