@@ -37,6 +37,9 @@ return {
             TelescopeBorder = { fg = border_color },
             AlphaHeader = { fg = cp.lavender },
 
+            -- whichkey
+            WhichKeyFloat = { bg = vim.g.transparency and cp.none or cp.base },
+
             -- Renamer
             RenamerBorder = { fg = border_color },
             RenamerTitle = { fg = cp.blue },
