@@ -388,6 +388,7 @@ return {
   -- neoscroll
   {
     "karb94/neoscroll.nvim",
+    enabled = not vim.g.neovide,
     event = event.BufReadPre,
     config = function()
       require("neoscroll").setup()
