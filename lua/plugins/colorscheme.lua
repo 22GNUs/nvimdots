@@ -50,7 +50,7 @@ return {
             Folded = { bg = cp.none },
 
             -- For trouble.nvim
-            TroubleNormal = { bg = cp.base },
+            TroubleNormal = { bg = vim.g.transparency and cp.none or cp.base },
             TroubleText = { fg = cp.baby_pink },
 
             -- treesitter.
