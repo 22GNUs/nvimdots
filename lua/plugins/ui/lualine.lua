@@ -20,7 +20,10 @@ local space = {
   function()
     return " "
   end,
-  color = { bg = palettes.base, fg = palettes.base },
+  color = {
+    bg = vim.g.transparency and palettes.none or palettes.base,
+    fg = vim.g.transparency and palettes.none or palettes.base,
+  },
 }
 
 local location = {
@@ -136,18 +139,18 @@ return {
         space,
         filetype,
         filename,
-        space,
       },
       lualine_c = {
+        space,
         branch,
         diff,
       },
       lualine_x = {
         dia,
         lsp,
+        space,
       },
       lualine_y = {
-        space,
         encoding,
         fileformat,
       },
