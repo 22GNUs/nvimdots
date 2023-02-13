@@ -91,16 +91,6 @@ return {
             ["@keyword"] = { fg = cp.baby_pink, style = { "italic" } },
             ["@keyword.function"] = { fg = cp.blue },
             ["@keyword.return"] = { fg = cp.baby_pink, style = {} },
-
-            ["@function.builtin.bash"] = { fg = cp.baby_pink, style = { "italic" } },
-            ["@field.lua"] = { fg = cp.lavender },
-            ["@constructor.lua"] = { fg = cp.flamingo },
-            ["@constant.java"] = { fg = cp.lavender },
-            ["@type.css"] = { fg = cp.lavender },
-            ["@type.builtin.c"] = { fg = cp.mauve, style = {} },
-            ["@type.builtin.cpp"] = { fg = cp.mauve, style = {} },
-            ["@property.typescript"] = { fg = cp.lavender, style = { "italic" } },
-            ["@property.cpp"] = { fg = cp.text },
           }
         end,
       },
