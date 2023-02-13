@@ -17,7 +17,7 @@ return {
           baby_pink = "#FFA5C3",
           nord_blue = "#8CB2F0",
           -- overrided
-          lavender = "#c7d1ff",
+          -- lavender = "#c7d1ff",
           peach = "#F8BD96",
           teal = "#B5E8E0",
           green = "#ABE9B3",
