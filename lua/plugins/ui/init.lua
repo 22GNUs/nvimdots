@@ -392,7 +392,8 @@ return {
   {
     "karb94/neoscroll.nvim",
     enabled = not vim.g.neovide,
-    event = event.BufReadPre,
+    -- load before BufRead, avoid loading impact on performance
+    event = event.VeryLazy,
     config = function()
       require("neoscroll").setup()
     end,
