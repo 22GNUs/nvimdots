@@ -1,7 +1,7 @@
 local g = vim.g
 local o = vim.opt
 if g.neovide ~= nil then
-  o.guifont = { "IosevkaTerm Nerd Font Mono,Sarasa UI SC", ":h17" }
+  o.guifont = { "IosevkaTerm Nerd Font Mono,Sarasa UI SC,Noto Color Emoji", ":h17" }
   -- g.neovide_fullscreen = true
   g.neovide_scroll_animation_length = 0.6
   g.neovide_no_idle = true
