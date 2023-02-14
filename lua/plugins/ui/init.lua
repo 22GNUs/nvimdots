@@ -363,6 +363,7 @@ return {
         "java",
         "go",
         "markdown",
+        "markdown_inline",
       },
       highlight = {
         enable = true,
