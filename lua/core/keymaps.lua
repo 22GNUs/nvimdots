@@ -203,17 +203,34 @@ M.toggleterm = {
           border = "double",
         },
         hidden = true,
-        on_open = function(term)
-          vim.cmd("startinsert!")
-          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-        end,
-        on_close = function()
-          vim.cmd("startinsert!")
-        end,
       })
       lazygit:toggle()
     end,
     desc = "toggle lazygit term",
+    silent = true,
+  },
+  {
+    "<leader>tm",
+    function()
+      local ft = vim.bo.filetype
+      if ft ~= "markdown" then
+        vim.notify("Current ft is not markdown!")
+        return
+      end
+      local bufname = vim.api.nvim_buf_get_name(0)
+      vim.pretty_print(bufname)
+      local Terminal = require("toggleterm.terminal").Terminal
+      local glow = Terminal:new({
+        cmd = string.format('glow -p "%s"', bufname),
+        direction = "float",
+        hidden = false,
+        float_opts = {
+          border = "double",
+        },
+      })
+      glow:toggle()
+    end,
+    desc = "toggle markdown preview",
     silent = true,
   },
 }
