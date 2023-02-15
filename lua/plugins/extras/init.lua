@@ -23,8 +23,9 @@ local conf = {
 return {
   -- obsidian
   {
-    "epwalsh/obsidian.nvim",
+    "22GNUs/obsidian.nvim",
     event = require("core.lazy").event.VeryLazy,
+    version = false,
     cond = function()
       -- only load when edit markdown and in vault dir
       return vim.fn.getcwd():find("^" .. conf.ob.vault_dir) ~= nil
