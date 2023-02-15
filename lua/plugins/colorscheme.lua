@@ -10,6 +10,22 @@ return {
         light = "latte",
         dark = "mocha",
       },
+      no_italic = false, -- Force no italic
+      no_bold = false, -- Force no bold
+      styles = {
+        comments = { "italic" },
+        properties = { "italic" },
+        functions = { "italic", "bold" },
+        keywords = { "italic" },
+        operators = { "bold" },
+        conditionals = { "bold" },
+        loops = { "bold" },
+        booleans = { "bold", "italic" },
+        numbers = {},
+        types = {},
+        strings = {},
+        variables = {},
+      },
       color_overrides = {
         mocha = {
           -- new added
@@ -24,9 +40,8 @@ return {
           yellow = "#FAE3B0",
           blue = "#89B4FA",
           red = "#F38BA8",
-          mauve = "#d0a9e5",
+          mauve = "#DDB6F2",
           sky = "#89DCEB",
-          sapphire = "#89DCEB",
         },
       },
       highlight_overrides = {
@@ -57,13 +72,13 @@ return {
 
             -- treesitter.
             ["@text"] = { fg = cp.text },
-            ["@punctuation.delimiter"] = { fg = cp.sapphire },
+            ["@punctuation.delimiter"] = { fg = cp.flamingo },
             ["@punctuation.special"] = { fg = cp.baby_pink },
             ["@punctuation.bracket"] = { fg = cp.overlay2 },
 
-            ["@field"] = { fg = cp.lavender },
-            ["@property"] = { fg = cp.sapphire },
-            ["@constructor"] = { fg = cp.pink },
+            ["@field"] = { fg = cp.teal },
+            ["@property"] = { fg = cp.teal },
+            ["@constructor"] = { fg = cp.nord_blue, style = { "italic", "bold" } },
             ["@method"] = { fg = cp.nord_blue, style = { "italic" } },
             ["@function.macro"] = { fg = cp.baby_pink, style = {} },
             ["@parameter"] = { fg = cp.pink },
@@ -74,23 +89,30 @@ return {
             ["@variable"] = { fg = cp.text },
             ["@variable.builtin"] = { fg = cp.baby_pink, style = { "italic" } },
             ["@type"] = { fg = cp.lavender },
+            ["@type.definition"] = { fg = cp.sun },
+            ["@storageclass"] = { fg = cp.sun },
+            ["@structure"] = { fg = cp.sun },
             ["@tag.attribute"] = { fg = cp.mauve, style = { "italic" } },
             ["@tag"] = { fg = cp.mauve },
             ["@tag.delimiter"] = { fg = cp.baby_pink },
 
             ["@constant.builtin"] = { fg = cp.lavender },
+            ["@define"] = { fg = cp.sun },
             ["@boolean"] = { fg = cp.peach },
             ["@number"] = { fg = cp.peach },
             ["@float"] = { fg = cp.peach },
 
-            ["@conditional"] = { fg = cp.teal },
-            ["@repeat"] = { fg = cp.teal },
-            ["@exception"] = { fg = cp.teal },
-            ["@labal"] = { fg = cp.sky },
-            ["@operator"] = { fg = cp.red },
+            ["@conditional"] = { fg = cp.sky, style = { "italic", "bold" } },
+            ["@repeat"] = { fg = cp.sky, style = { "italic", "bold" } },
+            ["@exception"] = { fg = cp.sky, style = { "italic", "bold" } },
+            ["@labal"] = { fg = cp.flamingo },
+            ["@operator"] = { fg = cp.flamingo },
             ["@keyword"] = { fg = cp.baby_pink, style = { "italic" } },
             ["@keyword.function"] = { fg = cp.blue },
             ["@keyword.return"] = { fg = cp.baby_pink, style = {} },
+
+            ["@field.lua"] = { fg = cp.lavender },
+            ["@keyword.function.typescript"] = { fg = cp.baby_pink, style = { "italic" } },
           }
         end,
       },
@@ -101,22 +123,6 @@ return {
         enabled = false,
         shade = "dark",
         percentage = 0.15,
-      },
-      no_italic = false, -- Force no italic
-      no_bold = false, -- Force no bold
-      styles = {
-        comments = { "italic" },
-        properties = { "italic" },
-        functions = { "italic", "bold" },
-        keywords = { "italic" },
-        operators = { "bold" },
-        conditionals = { "bold" },
-        loops = { "bold" },
-        booleans = { "bold", "italic" },
-        numbers = {},
-        types = {},
-        strings = {},
-        variables = {},
       },
       integrations = {
         cmp = true,
