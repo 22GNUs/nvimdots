@@ -133,6 +133,7 @@ M.telescope = {
   { "<leader>fr", "<cmd> Telescope oldfiles <CR>", desc = "find old files" },
   { "<leader>fw", "<cmd> Telescope live_grep <CR>", desc = "live grep" },
   { "<leader>fb", "<cmd> Telescope buffers <CR>", desc = "find buffers" },
+  { "<leader>fn", "<cmd> Noice telescope <CR>", desc = "find notices" },
   { "<leader>fh", "<cmd> Telescope help_tags <CR>", desc = "help page" },
   { "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "find oldfiles" },
   { "<leader>ft", "<cmd> Telescope keymaps <CR>", desc = "show keys" },

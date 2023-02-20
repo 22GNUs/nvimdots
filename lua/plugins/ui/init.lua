@@ -407,6 +407,9 @@ return {
   {
     "folke/noice.nvim",
     event = event.VeryLazy,
+    cond = function()
+      return not vim.g.neovide
+    end,
     dependencies = {
       "nui",
       "nvim-notify",
