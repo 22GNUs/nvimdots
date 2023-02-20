@@ -19,10 +19,6 @@ return {
   {
     "goolord/alpha-nvim",
     event = require("core.lazy").event.VimEnter,
-    -- disable alpha in neovide
-    cond = function()
-      return vim.g.neovide == nil
-    end,
     dependencies = {
       "nvim-web-devicons",
       "plenary",
