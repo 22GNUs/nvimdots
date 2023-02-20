@@ -52,14 +52,12 @@ return {
             CmpBorder = { fg = border_color },
             CmpDocBorder = { fg = border_color },
             TelescopeBorder = { fg = border_color },
+            NoiceCmdlinePopupBorder = { fg = border_color },
+
             AlphaHeader = { fg = cp.lavender },
 
             -- whichkey
             WhichKeyFloat = { bg = vim.g.transparency and cp.none or cp.base },
-
-            -- Renamer
-            RenamerBorder = { fg = border_color },
-            RenamerTitle = { fg = cp.blue },
 
             -- Remove cursorLine bg
             CursorLine = { bg = cp.none },
@@ -154,8 +152,9 @@ return {
         gitsigns = true,
         nvimtree = true,
         telescope = true,
-        notify = false,
         mini = false,
+        noice = true,
+        notify = true,
       },
     },
     config = function(self, opts)

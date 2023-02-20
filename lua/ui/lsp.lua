@@ -17,32 +17,6 @@ vim.diagnostic.config({
   update_in_insert = false,
 })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "single",
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "single",
-  focusable = false,
-  relative = "cursor",
-})
--- make diagnostic work on insert mode
-local settings = require("core.settings")
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  update_in_insert = settings.diagnostics.update_in_insert,
-})
-
--- suppress error messages from lang servers
-vim.notify = function(msg, log_level)
-  if msg:match("exit code") then
-    return
-  end
-  if log_level == vim.log.levels.ERROR then
-    vim.api.nvim_err_writeln(msg)
-  else
-    vim.api.nvim_echo({ { msg } }, true, {})
-  end
-end
-
 -- Borders for LspInfo winodw
 local win = require("lspconfig.ui.windows")
 local _default_opts = win.default_opts

@@ -21,6 +21,11 @@ local conf = {
   },
 }
 return {
+  -- wakatime
+  {
+    "wakatime/vim-wakatime",
+    event = require("core.lazy").event.VeryLazy,
+  },
   -- obsidian
   {
     "22GNUs/obsidian.nvim",

@@ -5,9 +5,14 @@ return {
     name = "plenary",
     module = true,
   },
-  -- wakatime
   {
-    "wakatime/vim-wakatime",
-    event = require("core.lazy").event.VeryLazy,
+    "MunifTanjim/nui.nvim",
+    name = "nui",
+    module = true,
+  },
+  {
+    "rcarriga/nvim-notify",
+    name = "nvim-notify",
+    module = true,
   },
 }

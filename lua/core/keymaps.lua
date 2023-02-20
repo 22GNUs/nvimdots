@@ -158,19 +158,13 @@ M.lspconfig = {
   -- { "<leader>dq", vim.diagnostic.setloclist, desc = "diagnostic setloclist" },
   { "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "add workspace folder" },
   { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "remove workspace folder" },
+  { "<leader>rr", vim.lsp.buf.rename, desc = "lsp rename" },
   {
     "<leader>ws",
     function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end,
     desc = "show workspace folders",
-  },
-  {
-    "<leader>rr",
-    function()
-      require("ui.renamer").open()
-    end,
-    desc = "lsp rename",
   },
   {
     "<leader>fm",
