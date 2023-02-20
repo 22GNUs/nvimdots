@@ -424,6 +424,9 @@ return {
             ["cmp.entry.get_documentation"] = true,
           },
         },
+        messages = {
+          enabled = false,
+        },
         presets = {
           bottom_search = false,
           command_palette = true,
