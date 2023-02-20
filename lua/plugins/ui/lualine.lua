@@ -20,10 +20,6 @@ local space = {
   function()
     return " "
   end,
-  color = {
-    bg = vim.g.transparency and palettes.none or palettes.base,
-    fg = vim.g.transparency and palettes.none or palettes.base,
-  },
 }
 
 local location = {
