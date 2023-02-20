@@ -58,7 +58,7 @@ local modes = {
     return str:sub(1, 1)
   end,
   -- use theme colors
-  -- color = { bg = palettes.peach, fg = palettes.base },
+  color = { fg = palettes.base, bg = palettes.lavender },
   separator = separator,
   icon = { "", align = "left" },
 }
@@ -95,7 +95,7 @@ local lsp = {
 
 local theme = {
   normal = {
-    a = { fg = palettes.base, bg = palettes.lavender },
+    a = {},
     b = {},
     c = {},
     x = {},
