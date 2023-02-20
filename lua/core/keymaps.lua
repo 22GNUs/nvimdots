@@ -230,6 +230,10 @@ M.toggleterm = {
   },
 }
 
+M.symbolsoutline = {
+  { "<leader>so", ":SymbolsOutline<CR>", desc = "toggle outline", silent = true },
+}
+
 M.zenmode = {
   { "<leader>tz", ":ZenMode<CR>", desc = "toggle zen mode", silent = true },
 }
