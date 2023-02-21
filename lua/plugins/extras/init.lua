@@ -25,6 +25,11 @@ return {
   {
     "wakatime/vim-wakatime",
     event = require("core.lazy").event.VeryLazy,
+    cond = function()
+      -- only enable wakatime when cwd is a '.git' directory
+      local git_dir = vim.loop.fs_stat(".git")
+      return git_dir and git_dir.type == "directory"
+    end,
   },
   -- obsidian
   {
