@@ -59,6 +59,9 @@ return {
             -- whichkey
             WhichKeyFloat = { bg = vim.g.transparency and cp.none or cp.base },
 
+            -- notice
+            NotifyBackground = { bg = cp.base },
+
             -- Remove cursorLine bg
             CursorLine = { bg = cp.none },
             -- Hide fold bg
