@@ -67,6 +67,9 @@ return {
             -- notice
             NotifyBackground = { bg = cp.base },
 
+            -- outline's focused symbol
+            FocusedSymbol = { fg = cp.baby_pink },
+
             -- Remove cursorLine bg
             CursorLine = { bg = cp.none },
             -- Hide fold bg
