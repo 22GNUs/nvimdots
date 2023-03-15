@@ -1,3 +1,9 @@
+## Getting start
+
+```sh
+git clone git@github.com:22GNUs/nvimdots.git ~/.config/nvim && nvim
+```
+
 ## Recommand Fonts
 
 ### FantasqueSansMono Nerd Font
@@ -19,3 +25,13 @@ brew install lazygit
 ```sh
 brew install glow
 ```
+
+## Preview
+
+### Dashboard
+
+![preview_1](images/preview_1.jpg)
+
+### UI
+
+![preview_2](images/preview_2.jpg)
