@@ -27,27 +27,7 @@ return {
         variables = {},
       },
       color_overrides = {
-        mocha = {
-          -- new added
-          sun = "#FFE9B6",
-          baby_pink = "#FFA5C3",
-          nord_blue = "#8CB2F0",
-          -- overrided
-          rosewater = "#F5E0DC",
-          flamingo = "#F2CDCD",
-          pink = "#F5C2E7",
-          mauve = "#DDB6F2",
-          red = "#F38BA8",
-          maroon = "#EBA0AC",
-          peach = "#F8BD96",
-          yellow = "#FAE3B0",
-          green = "#ABE9B3",
-          teal = "#B5E8E0",
-          sky = "#89DCEB",
-          sapphire = "#74C7EC",
-          blue = "#89B4FA",
-          -- lavender = "#c7d1ff",
-        },
+        mocha = {},
       },
       highlight_overrides = {
         mocha = function(cp)
@@ -78,50 +58,6 @@ return {
             -- For trouble.nvim
             TroubleNormal = { bg = vim.g.transparency and cp.none or cp.base },
             TroubleText = { fg = cp.baby_pink },
-
-            -- treesitter.
-            ["@text"] = { fg = cp.text },
-            ["@punctuation.delimiter"] = { fg = cp.flamingo },
-            ["@punctuation.special"] = { fg = cp.baby_pink },
-            ["@punctuation.bracket"] = { fg = cp.overlay2 },
-
-            ["@field"] = { fg = cp.teal },
-            ["@property"] = { fg = cp.teal },
-            ["@constructor"] = { fg = cp.nord_blue, style = { "italic", "bold" } },
-            ["@method"] = { fg = cp.nord_blue, style = { "italic" } },
-            ["@function.macro"] = { fg = cp.blue, style = {} },
-            ["@parameter"] = { fg = cp.pink },
-
-            ["@type.qualifier"] = { link = "@keyword" },
-            ["@namespace"] = { fg = cp.text, style = {} },
-            ["@include"] = { fg = cp.mauve, style = { "italic" } },
-            ["@variable"] = { fg = cp.text },
-            ["@type"] = { fg = cp.lavender },
-            ["@type.definition"] = { fg = cp.sun },
-            ["@storageclass"] = { fg = cp.sun },
-            ["@structure"] = { fg = cp.sun },
-            ["@tag.attribute"] = { fg = cp.mauve, style = { "italic" } },
-            ["@tag"] = { fg = cp.mauve },
-            ["@tag.delimiter"] = { fg = cp.flamingo },
-
-            ["@constant"] = { fg = cp.mauve },
-            ["@define"] = { fg = cp.sun },
-            ["@boolean"] = { fg = cp.peach },
-            ["@number"] = { fg = cp.peach },
-            ["@float"] = { fg = cp.peach },
-
-            ["@conditional"] = { fg = cp.sky, style = { "italic", "bold" } },
-            ["@repeat"] = { fg = cp.sky, style = { "italic", "bold" } },
-            ["@exception"] = { fg = cp.sky, style = { "italic", "bold" } },
-            ["@labal"] = { fg = cp.flamingo },
-            ["@operator"] = { fg = cp.flamingo },
-            ["@keyword"] = { fg = cp.baby_pink },
-            ["@keyword.function"] = { fg = cp.sky },
-            ["@keyword.return"] = { fg = cp.maroon, style = {} },
-
-            ["@field.lua"] = { fg = cp.lavender },
-            ["@keyword.function.typescript"] = { fg = cp.baby_pink, style = { "italic" } },
-            ["@method.java"] = { fg = cp.nord_blue, style = { "italic" } },
           }
         end,
       },
