@@ -6,6 +6,11 @@ return {
     module = true,
   },
   {
+    "stevearc/dressing.nvim",
+    name = "dressing",
+    module = true,
+  },
+  {
     "MunifTanjim/nui.nvim",
     name = "nui",
     module = true,

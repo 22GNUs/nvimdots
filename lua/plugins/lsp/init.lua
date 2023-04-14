@@ -112,4 +112,16 @@ return {
       })
     end,
   },
+  -- flutter
+  {
+    "akinsho/flutter-tools.nvim",
+    ft = "dart",
+    dependencies = {
+      "plenary",
+      "dressing",
+    },
+    config = function()
+      require("flutter-tools").setup({})
+    end,
+  },
 }
