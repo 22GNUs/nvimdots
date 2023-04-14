@@ -249,7 +249,6 @@ return {
       space_char_blankline = " ",
       indentLine_enabled = 1,
       filetype_exclude = {
-        "help",
         "terminal",
         "alpha",
         "dashboard",
@@ -353,7 +352,6 @@ return {
     build = ":TSUpdate",
     opts = {
       ensure_installed = {
-        "help",
         "json",
         "toml",
         "yaml",
